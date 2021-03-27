@@ -1,6 +1,7 @@
 import pygame
 from Globals import MyGlobals
 from Func import print_text
+import time
 
 
 class Button:
@@ -11,14 +12,15 @@ class Button:
         self.inactive_color = inactive_color
         self.active_color = active_color
 
-    def draw(self, position_x, position_y, message, action=None):
+    def draw(self, position_x, position_y, message, action, num, act=None):
         mouse = pygame.mouse.get_pos()
-        click = pygame.mouse.get_pressed()
 
         if position_y < mouse[1] < position_y + self.height and position_x < mouse[0] < position_x + self.width:
             pygame.draw.rect(MyGlobals.display, self.active_color, (position_x, position_y, self.width, self.height))
         else:
             pygame.draw.rect(MyGlobals.display, self.inactive_color, (position_x, position_y, self.width, self.height))
+
+
 
 
 class Pet:
@@ -33,3 +35,6 @@ class Pet:
     def hunger_loss(self, hunger_loss):
         self.pet_hunger -= hunger_loss
 
+    def hunger_replenishment(self, hunger_replenishment):
+        self.pet_hunger += hunger_replenishment
+        

@@ -30,8 +30,6 @@ fps = pygame.time.Clock()
 button = Button(100, 100, (0, 24, 5), (186, 250, 90))
 
 
-
-
 def run_game():
     game = True
 
@@ -40,12 +38,15 @@ def run_game():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    action_button_click(100, 50, 100, 50, cat.hunger_replenishment(5))
 
         MyGlobals.display.blit(bg, (0, 0))
-        cat.hunger_loss(0.0001)
+        cat.hunger_loss(0.001)
         print_text(str(int(cat.pet_hunger)), 500, 500)
         draw_cat_sit()
-        button.draw(100, 50, "b")
+        button.draw(100, 50, "b", cat.hunger_replenishment, 5)
 
         pygame.display.update()
         fps.tick(60)
@@ -57,6 +58,15 @@ def draw_cat_sit():
         img_counter = 0
     MyGlobals.display.blit(cat_sit[img_counter // 10], (cat_x, cat_y))
     img_counter += 1
+
+
+def action_button_click(x, y, w, h, action=None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+
+    if x + w > mouse[0] > x and y + h > mouse[1] > y:
+        if click[0] == 1 and action != None:
+            action()
 
 
 run_game()
