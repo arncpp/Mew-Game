@@ -21,4 +21,4 @@ def pause():
             paused = False
 
         pygame.display.update()
-      #  pygame.clock.tick(15)
+    #  pygame.clock.tick(15)
