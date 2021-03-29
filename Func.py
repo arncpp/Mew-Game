@@ -1,8 +1,10 @@
 import pygame
 from Globals import MyGlobals
+import time
 
 bg_counter = 0
 img_counter = 0
+d_counter = 0
 
 
 def print_text(message, x, y, font_color=(0, 0, 0), font_type="images/pixelsh.ttf", font_size=25):
@@ -18,6 +20,7 @@ def pause():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+
         print_text("Paused. Press enter to continue", 160, 300)
         keys = pygame.key.get_pressed()
         if keys[pygame.K_RETURN]:
@@ -25,10 +28,6 @@ def pause():
 
         pygame.display.update()
     #  pygame.clock.tick(15)
-
-
-
-
 
 
 def draw_bg_lofi():
@@ -45,3 +44,15 @@ def draw_cat_sit():
         img_counter = 0
     MyGlobals.display.blit(MyGlobals.cat_sit[img_counter // 11], (MyGlobals.cat_x, MyGlobals.cat_y))
     img_counter += 1
+
+
+def draw_cat_dead():
+    global d_counter
+    if d_counter == len(MyGlobals.death) * 11:
+        d_counter -= 1
+
+    MyGlobals.display.blit(MyGlobals.death[d_counter // 11], (MyGlobals.cat_x - 5, MyGlobals.cat_y + 40))
+    d_counter += 1
+
+
+

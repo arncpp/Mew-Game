@@ -4,7 +4,7 @@ from Pet import *
 
 
 class Button:
-    def __init__(self, position_x, position_y, width, height, inactive_color, active_color, click_im, action, num):
+    def __init__(self, position_x, position_y, width, height, inactive_color, active_color, click_im, action, num=None):
         self.width = width
         self.height = height
         self.position_x = position_x
@@ -39,10 +39,17 @@ class Button:
         if self.position_x < mouse[0] < self.position_x + self.width and self.position_y < mouse[
             1] < self.position_y + self.height:
             if click[0] == 1 and self.action != None:
-                self.action(self.num)
+                if self.num != None:
+                    self.action(self.num)
+                else:
+                    self.action()
 
 
 class ButtonFactory:
     def button_food(self):
-        return Button(20, 20, 100, 38, MyGlobals.but_in, MyGlobals.but_ac, MyGlobals.but_cl,
+        return Button(20, 40, 100, 38, MyGlobals.but_in, MyGlobals.but_ac, MyGlobals.but_cl,
                       MyGlobals.cat.hunger_replenishment, 5)
+
+    def button_sleep(self):
+        return Button(20, 80, 100, 38, MyGlobals.but_in, MyGlobals.but_ac, MyGlobals.but_cl,
+                      MyGlobals.cat.sleep_replenishment, 5)
