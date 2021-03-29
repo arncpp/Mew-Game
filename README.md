@@ -41,7 +41,7 @@
 
 ## Как запустить игру на PyCharm ##
 
-**1. Создайте пустой проект на PyCharm: (*File -> New Project*) **
+**1. Создайте пустой проект на PyCharm: (*File -> New Project*)**
 
 **2. Установите библиотеку PyGame: (*File -> Settings -> Project:"название" -> Python Interpreter -> Install -> pygame*)**
 
