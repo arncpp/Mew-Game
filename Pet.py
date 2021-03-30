@@ -1,11 +1,17 @@
-# -------Класс питомец--------------
+
 class Pet:
-    def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger, pet_age):
+    def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger):
+        '''
+        Основной класс питомца
+        :param pet_health: здоровье питомца
+        :param pet_sleep: значение сна питомца
+        :param pet_happiness: значение счастья питомца
+        :param pet_hunger: значение голода питомца
+        '''
         self.pet_health = pet_health
         self.pet_sleep = pet_sleep
         self.pet_happiness = pet_happiness
         self.pet_hunger = pet_hunger
-        self.pet_age = pet_age
         self.pet_death = False
         self.death_reason = ''
         self.pet_name = ''
@@ -50,10 +56,34 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_hunger += hunger_replenishment
-        self.pet_hapiness_replenishment(3)
+        self.pet_hapiness_replenishment(10)
         if self.pet_hunger >= 106:
             self.pet_death = True
             self.death_reason = 'Food'
+
+    def health_loss(self, health_loss):
+        '''
+        Принимает health_loss
+        :param health_loss:то, что вычитается из pet_health
+        :return: ничего не возвращает
+        '''
+        self.pet_health -= health_loss
+        self.pet_hapiness_loss(0.001)
+        if self.pet_health <= 5:
+            self.pet_death = True
+            self.death_reason = 'Health'
+
+    def health_replenishment(self, health_replenishment):
+        '''
+        Принимает health_replenishment
+        :param hunger_replenishment:то, что прибавляется к pet_health
+        :return: ничего не возвращает
+        '''
+        self.pet_health += health_replenishment
+        self.pet_hapiness_replenishment(2)
+        if self.pet_health >= 106:
+            self.pet_health = 106
+            self.pet_hapiness_replenishment(-2)
 
     def sleep_loss(self, sleep_loss):
         '''
@@ -74,14 +104,16 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_sleep += sleep_replenishment
-        self.pet_hapiness_replenishment(3)
+        self.pet_hapiness_replenishment(10)
         if self.pet_sleep >= 106:
             self.pet_sleep = 106
+            self.pet_hapiness_replenishment(-10)
 
     def set_sleep(self, pet_sleep):
         '''
         Принимает pet_sleep
-        :param pet_sleep: устанавливает питомцу значение сна, которое было принято
+        :param pet_sleep: устанавливает питомцу значение сна,
+        которое было принято
         :return: ничего не возвращает
         '''
         self.pet_sleep = pet_sleep
@@ -89,7 +121,8 @@ class Pet:
     def set_hunger(self, pet_hunger):
         '''
         Принимает pet_hunger
-        :param pet_hunger: устанавливает питомцу значение еды, которое было принято
+        :param pet_hunger: устанавливает питомцу значение еды,
+        которое было принято
         :return: ничего не возвращает
         '''
         self.pet_hunger = pet_hunger
@@ -97,10 +130,20 @@ class Pet:
     def set_happiness(self, pet_happiness):
         '''
         Принимает pet_happiness
-        :param pet_happiness: устанавливает питомцу значение счастья, которое было принято
+        :param pet_happiness: устанавливает питомцу значение счастья,
+        которое было принято
         :return: ничего не возвращает
         '''
         self.pet_happiness = pet_happiness
+
+    def set_health(self, pet_health):
+        '''
+        Принимает pet_health
+        :param pet_health: устанавливает питомцу значение здоровья,
+        которое было принято
+        :return: ничего не возвращает
+        '''
+        self.pet_health = pet_health
 
     def set_name(self, name):
         '''
