@@ -17,7 +17,7 @@
 
 **1. Скачайте python3 с официального [сайта](https://www.python.org/downloads/) и установите его.**
 **2. Во время установки *обязательно* поставьте галочку "Add Python 3.x to PATH".**
-![add path screenshot](https://c.radikal.ru/c17/2103/ab/b5f3b7a0680b.png)
+![add path screenshot](https://python-scripts.com/wp-content/uploads/2018/06/win-install-dialog.40e3ded144b0.png)
 
 **3. Когда установка закончится запустите консоль (например нажать комбинацию Win + R и в открывшемсчя окне вписать cmd)**
 ![open console screenshot](https://b.radikal.ru/b30/2103/79/aeab9b79b642.png)
@@ -57,7 +57,7 @@
 
 # Скрины из игры #
 ![Menu](screenshots/menu.PNG "Игровое меню")
-![Game](screenshots/s1.PNG "Игровой процесс")
+![Game](screenshots/s2.PNG "Игровой процесс")
 ![Dead](screenshots/dead.PNG "Конец игры")
 
 > Здесь может быть
