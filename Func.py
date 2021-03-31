@@ -1,16 +1,16 @@
-
 import pygame
 from Globals import MyGlobals
 
-
+# ------Счётчики спрайтов-------------
 bg_counter = 0
 img_counter = 0
 d_counter = 0
 bg_menu_counter = 0
 
 
-def print_text(message, x, y, font_color=(0, 0, 0),
-               font_type="images/pixelsh.ttf", font_size=25):
+def print_text(message, x, y, font_color=MyGlobals.BlACK,
+               font_type="images/pixelsh.ttf",
+               font_size=MyGlobals.main_font_size):
     '''
     Функция печати текста на экране
     :param message: сообщение, которое требуется вывести на экран
@@ -30,9 +30,11 @@ def draw_bg_lofi():
     Отрисовка анимации заднего фона в основной игре
     '''
     global bg_counter
-    if bg_counter == len(MyGlobals.bg_lofi) * 4:
+    if bg_counter == len(MyGlobals.bg_lofi) * MyGlobals.bg_lofi_deceleration:
         bg_counter = 0
-    MyGlobals.display.blit(MyGlobals.bg_lofi[bg_counter // 4], (0, 0))
+    MyGlobals.display.blit(
+        MyGlobals.bg_lofi[bg_counter // MyGlobals.bg_lofi_deceleration],
+        (0, 0))
     bg_counter += 1
 
 
@@ -41,9 +43,12 @@ def draw_bg_menu():
     Отрисовка анимации заднего фона в меню
     '''
     global bg_menu_counter
-    if bg_menu_counter == len(MyGlobals.bg_menu) * 49:
+    if bg_menu_counter == len(
+            MyGlobals.bg_menu) * MyGlobals.bg_menu_deceleration:
         bg_menu_counter = 0
-    MyGlobals.display.blit(MyGlobals.bg_menu[bg_menu_counter // 49], (0, 0))
+    MyGlobals.display.blit(
+        MyGlobals.bg_menu[bg_menu_counter // MyGlobals.bg_menu_deceleration],
+        (0, 0))
     bg_menu_counter += 1
 
 
@@ -52,10 +57,11 @@ def draw_cat_sit():
     Отрисовка анимации сидящего кота
     '''
     global img_counter
-    if img_counter == len(MyGlobals.cat_sit) * 11:
+    if img_counter == len(MyGlobals.cat_sit) * MyGlobals.cat_deceleration:
         img_counter = 0
-    MyGlobals.display.blit(MyGlobals.cat_sit[img_counter // 11],
-                           (MyGlobals.cat_x, MyGlobals.cat_y))
+    MyGlobals.display.blit(
+        MyGlobals.cat_sit[img_counter // MyGlobals.cat_deceleration],
+        (MyGlobals.cat_x, MyGlobals.cat_y))
     img_counter += 1
 
 
@@ -64,11 +70,13 @@ def draw_cat_dead():
     Отрисовка анимации смерти кота
     '''
     global d_counter
-    if d_counter == len(MyGlobals.death) * 11:
+    if d_counter == len(MyGlobals.death) * MyGlobals.cat_deceleration:
         d_counter -= 1
 
-    MyGlobals.display.blit(MyGlobals.death[d_counter // 11],
-                           (MyGlobals.cat_x - 5, MyGlobals.cat_y + 40))
+    MyGlobals.display.blit(
+        MyGlobals.death[d_counter // MyGlobals.cat_deceleration],
+        (MyGlobals.cat_x + MyGlobals.cat_dead_indent_x,
+         MyGlobals.cat_y + MyGlobals.cat_dead_indent_y))
     d_counter += 1
 
 
@@ -87,7 +95,7 @@ def menu_mus():
     '''
     pygame.mixer.music.load(MyGlobals.menu_track)
     pygame.mixer.music.play(-1)
-    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.set_volume(MyGlobals.music_volume)
 
 
 def next_track():
@@ -115,7 +123,7 @@ def mew_1():
     Функция воспроизводит первый тип мяуканья кота в нулевом звуковом канале
     '''
     MyGlobals.channel1.play(MyGlobals.mew_1)
-    MyGlobals.mew_1.set_volume(0.2)
+    MyGlobals.mew_1.set_volume(MyGlobals.sounds_volume)
 
 
 def mew_2():
@@ -123,7 +131,7 @@ def mew_2():
     Функция воспроизводит второй тип мяуканья кота в нулевом звуковом канале
     '''
     MyGlobals.channel1.play(MyGlobals.mew_2)
-    MyGlobals.mew_2.set_volume(0.2)
+    MyGlobals.mew_2.set_volume(MyGlobals.sounds_volume)
 
 
 def mrr():
@@ -131,7 +139,7 @@ def mrr():
     Функция воспроизводит мурлыканье кота в нулевом звуковом канале
     '''
     MyGlobals.channel1.play(MyGlobals.mrr)
-    MyGlobals.mrr.set_volume(0.2)
+    MyGlobals.mrr.set_volume(MyGlobals.sounds_volume)
 
 
 def eat_sound():
@@ -146,53 +154,104 @@ def pet_died():
     Отрисовка 3d текста, если кот умер
     '''
     print_text(MyGlobals.cat.pet_name,
-               470 - len(MyGlobals.cat.pet_name) / 2 * 20, 150,
-               font_color=(43, 0, 92),
-               font_size=30)
+               MyGlobals.cat_name_x_gameover - len(
+                   MyGlobals.cat.pet_name) * 10, MyGlobals.cat_name_y_gameover,
+               font_color=MyGlobals.EGGPLANT,
+               font_size=MyGlobals.font_size_gameover)
     print_text(MyGlobals.cat.pet_name,
-               475 - len(MyGlobals.cat.pet_name) / 2 * 20, 150,
-               font_color=(158, 91, 172), font_size=30)
-    print_text("is dead-inside because of the", 217, 190,
-               font_color=(43, 0, 92), font_size=30)
-    print_text("is dead-inside because of the", 222, 190,
-               font_color=(158, 91, 172), font_size=30)
-    print_text(MyGlobals.cat.death_reason, 417, 230, font_color=(43, 0, 92),
-               font_size=30)
-    print_text(MyGlobals.cat.death_reason, 422, 230, font_color=(158, 91, 172),
-               font_size=30)
-    print_text("Close the game to restart", 260, 270, font_color=(43, 0, 92),
-               font_size=30)
-    print_text("Close the game to restart", 265, 270,
-               font_color=(158, 91, 172), font_size=30)
+               MyGlobals.text_x_indent + MyGlobals.cat_name_x_gameover
+               - len(MyGlobals.cat.pet_name) * 10,
+               MyGlobals.cat_name_y_gameover,
+               font_color=MyGlobals.PERIWINKLE,
+               font_size=MyGlobals.font_size_gameover)
+    print_text("is dead-inside because of the", MyGlobals.text_x_gameover_dead,
+               MyGlobals.cat_name_y_gameover +
+               MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.EGGPLANT,
+               font_size=MyGlobals.font_size_gameover)
+    print_text("is dead-inside because of the",
+               MyGlobals.text_x_gameover_dead + MyGlobals.text_x_indent,
+               MyGlobals.cat_name_y_gameover +
+               MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.PERIWINKLE,
+               font_size=MyGlobals.font_size_gameover)
+    print_text(MyGlobals.cat.death_reason,
+               MyGlobals.text_x_gameover_death_reason,
+               MyGlobals.cat_name_y_gameover +
+               2 * MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.EGGPLANT,
+               font_size=MyGlobals.font_size_gameover)
+    print_text(MyGlobals.cat.death_reason,
+               MyGlobals.text_x_gameover_death_reason + MyGlobals.text_x_indent,
+               MyGlobals.cat_name_y_gameover +
+               2 * MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.PERIWINKLE,
+               font_size=MyGlobals.font_size_gameover)
+    print_text("Close the game to restart", MyGlobals.text_x_gameover_close,
+               MyGlobals.cat_name_y_gameover +
+               3 * MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.EGGPLANT,
+               font_size=MyGlobals.font_size_gameover)
+    print_text("Close the game to restart",
+               MyGlobals.text_x_gameover_close + MyGlobals.text_x_indent,
+               MyGlobals.cat_name_y_gameover +
+               3 * MyGlobals.cat_name_y_indent_gameover,
+               font_color=MyGlobals.PERIWINKLE,
+               font_size=MyGlobals.font_size_gameover)
 
 
 def draw_pet_stats():
     '''
     отрисовка статистики кота
     '''
-    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)), 587, 50)
-    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)), 592, 50,
-               font_color=(135, 0, 148))
-    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)), 587, 90)
-    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)), 592, 90,
-               font_color=(135, 0, 148))
-    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)), 587, 170)
-    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)), 592, 170,
-               font_color=(135, 0, 148))
-    print_text("Health:" + str(int(MyGlobals.cat.pet_health)), 587, 130)
-    print_text("Health:" + str(int(MyGlobals.cat.pet_health)), 592, 130,
-               font_color=(135, 0, 148))
+    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)),
+               MyGlobals.text_x_stats, MyGlobals.text_y_stats)
+    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)),
+               MyGlobals.text_x_stats + MyGlobals.text_x_indent,
+               MyGlobals.text_y_stats,
+               font_color=MyGlobals.DARK_PURPLE)
+    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)),
+               MyGlobals.text_x_stats,
+               MyGlobals.text_y_stats + MyGlobals.text_y_indent)
+    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)),
+               MyGlobals.text_x_stats + MyGlobals.text_x_indent,
+               MyGlobals.text_y_stats + MyGlobals.text_y_indent,
+               font_color=MyGlobals.DARK_PURPLE)
+    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)),
+               MyGlobals.text_x_stats,
+               MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent)
+    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)),
+               MyGlobals.text_x_stats + MyGlobals.text_x_indent,
+               MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent,
+               font_color=MyGlobals.DARK_PURPLE)
+    print_text("Health:" + str(int(MyGlobals.cat.pet_health)),
+               MyGlobals.text_x_stats,
+               MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent)
+    print_text("Health:" + str(int(MyGlobals.cat.pet_health)),
+               MyGlobals.text_x_stats + MyGlobals.text_x_indent,
+               MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent,
+               font_color=MyGlobals.DARK_PURPLE)
 
 
 def print_menu_text():
     '''
     отрисовка инструкций в главном меню
     '''
-    print_text("To start typing name, press the SPACE BAR.", 377, 50,
-               font_color=(52, 14, 18), font_size=15)
-    print_text("To start typing name, press the SPACE BAR.", 380, 50,
-               font_color=(108, 90, 106), font_size=15)
-    print_text("After you finish typing, click TAB.", 377, 80,
-               font_color=(52, 14, 18), font_size=15)
-    print_text("After you finish typing, click TAB.", 380, 80,
-               font_color=(108, 90, 106), font_size=15)
+    print_text("To start typing name, press the SPACE BAR.",
+               MyGlobals.text_x_in_menu, MyGlobals.text_y_in_menu,
+               font_color=MyGlobals.DOVE,
+               font_size=MyGlobals.font_size_in_menu)
+    print_text("To start typing name, press the SPACE BAR.",
+               MyGlobals.text_x_in_menu + MyGlobals.text_x_indent_in_menu,
+               MyGlobals.text_y_in_menu,
+               font_color=MyGlobals.SYRUP,
+               font_size=MyGlobals.font_size_in_menu)
+    print_text("After you finish typing, click TAB.", MyGlobals.text_x_in_menu,
+               MyGlobals.text_y_in_menu + MyGlobals.text_y_indent_in_menu,
+               font_color=MyGlobals.DOVE,
+               font_size=MyGlobals.font_size_in_menu)
+    print_text("After you finish typing, click TAB.",
+               MyGlobals.text_x_in_menu + MyGlobals.text_x_indent_in_menu,
+               MyGlobals.text_y_in_menu + MyGlobals.text_y_indent_in_menu,
+               font_color=MyGlobals.SYRUP,
+               font_size=MyGlobals.font_size_in_menu)

@@ -1,23 +1,11 @@
-from Button import Button
-from Button import ButtonFactory
-from Func import draw_bg_lofi
-from Func import draw_bg_menu
-from Func import draw_cat_sit
-from Func import draw_cat_dead
-from Func import draw_pet_stats
-from Func import menu_mus
-from Func import next_track
-from Func import pet_died
-from Func import play_music
-from Func import print_menu_text
-from Func import print_text
-from Func import prev_track
+from Button import Button, ButtonFactory
+from Func import draw_bg_lofi, draw_bg_menu, draw_cat_sit, draw_cat_dead, \
+    draw_pet_stats, menu_mus, next_track, pet_died, play_music, \
+    print_menu_text, print_text, prev_track
 from Globals import MyGlobals
 import pygame
 from Stats import stats_rec
 import time
-
-
 
 pygame.init()
 # ---------Настройки окна----------------

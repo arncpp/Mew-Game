@@ -1,11 +1,6 @@
 from Globals import MyGlobals
-from Func import eat_sound
-from Func import mrr
-from Func import mew_2
-from Func import mew_1
-from Func import next_track
-from Func import print_text
-from Func import prev_track
+from Func import eat_sound, mrr, mew_1, mew_2, next_track, print_text, \
+    prev_track
 import pygame
 
 
@@ -98,7 +93,10 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет функцию
         hunger_replenishment(прибавляет 5 единиц еды)
         '''
-        return Button(10, 40, 100, 38, MyGlobals.but_in, MyGlobals.but_ac,
+        return Button(MyGlobals.btn_x_in_game, MyGlobals.btn_y_in_game,
+                      MyGlobals.btn_width,
+                      MyGlobals.btn_height,
+                      MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       MyGlobals.cat.hunger_replenishment, eat_sound, 5)
 
@@ -108,7 +106,11 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет функцию
         sleep_replenishment(прибавляет 5 единиц сна)
         '''
-        return Button(10, 90, 100, 38, MyGlobals.but_in, MyGlobals.but_ac,
+        return Button(MyGlobals.btn_x_in_game,
+                      MyGlobals.btn_y_in_game + MyGlobals.btn_y_indent,
+                      MyGlobals.btn_width,
+                      MyGlobals.btn_height,
+                      MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       MyGlobals.cat.sleep_replenishment, mew_1, 5)
 
@@ -119,7 +121,11 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет функцию
         health_replenishment(прибавляет 5 единиц здоровья)
         '''
-        return Button(10, 140, 100, 38, MyGlobals.but_in, MyGlobals.but_ac,
+        return Button(MyGlobals.btn_x_in_game,
+                      MyGlobals.btn_y_in_game + 2 * MyGlobals.btn_y_indent,
+                      MyGlobals.btn_width,
+                      MyGlobals.btn_height,
+                      MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       MyGlobals.cat.health_replenishment, mew_2, 5)
 
@@ -130,7 +136,10 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет
         функцию next_track (переходит на след. трек)
         '''
-        return Button(270, 510, 100, 38, MyGlobals.but_in, MyGlobals.but_ac,
+        return Button(27 * MyGlobals.btn_x_in_game,
+                      12.5 * MyGlobals.btn_y_in_game, MyGlobals.btn_width,
+                      MyGlobals.btn_height,
+                      MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       next_track, mrr)
 
@@ -141,6 +150,8 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет
         функцию next_track (переходит на след. трек)
         '''
-        return Button(10, 510, 100, 38, MyGlobals.but_in, MyGlobals.but_ac,
+        return Button(MyGlobals.btn_x_in_game, 12.5 * MyGlobals.btn_y_in_game, MyGlobals.btn_width,
+                      MyGlobals.btn_height,
+                      MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       prev_track, mrr)

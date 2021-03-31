@@ -20,12 +20,12 @@ class Pet:
         self.pet_hap_loss = 0.002
         self.pet_hap_repl = 10
 
-    def pet_hapiness_loss(self, pet_hapiness_loss):
+    def pet_hapiness_loss(self, pet_hap_loss):
         '''
-        Принимает pet_hapiness_loss
-        :param pet_hapiness_loss:то, что вычитается из pet_happiness
+        Принимает pet_hap_loss
+        :param pet_hap_loss:то, что вычитается из pet_happiness
         '''
-        self.pet_happiness -= pet_hapiness_loss
+        self.pet_happiness -= pet_hap_loss
         if self.pet_happiness <= self.pet_min_stats:
             self.pet_death = True
             self.death_reason = "Sadness"
@@ -39,67 +39,67 @@ class Pet:
         if self.pet_happiness >= self.pet_max_stats:
             self.pet_happiness = self.pet_max_stats
 
-    def hunger_loss(self, hunger_loss):
+    def hunger_loss(self, hung_loss):
         '''
-        Принимает hunger_loss
-        :param hunger_loss:то, что вычитается из pet_hunger
+        Принимает hung_loss
+        :param hung_loss:то, что вычитается из pet_hunger
         '''
-        self.pet_hunger -= hunger_loss
+        self.pet_hunger -= hung_loss
         self.pet_hapiness_loss(self.pet_hap_loss)
         if self.pet_hunger <= self.pet_min_stats or self.pet_hunger >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Food'
 
-    def hunger_replenishment(self, hunger_replenishment):
+    def hunger_replenishment(self, hung_replenishment):
         '''
-        Принимает hunger_replenishment
-        :param hunger_replenishment:то, что прибавляется к pet_hunger
+        Принимает hung_replenishment
+        :param hung_replenishment:то, что прибавляется к pet_hunger
         '''
-        self.pet_hunger += hunger_replenishment
+        self.pet_hunger += hung_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl)
         if self.pet_hunger >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Food'
 
-    def health_loss(self, health_loss):
+    def health_loss(self, heal_loss):
         '''
-        Принимает health_loss
-        :param health_loss:то, что вычитается из pet_health
+        Принимает heal_loss
+        :param heal_loss:то, что вычитается из pet_health
         '''
-        self.pet_health -= health_loss
+        self.pet_health -= heal_loss
         self.pet_hapiness_loss(self.pet_hap_loss // 2)
         if self.pet_health <= self.pet_min_stats:
             self.pet_death = True
             self.death_reason = 'Health'
 
-    def health_replenishment(self, health_replenishment):
+    def health_replenishment(self, heal_replenishment):
         '''
-        Принимает health_replenishment
-        :param hunger_replenishment:то, что прибавляется к pet_health
+        Принимает heal_replenishment
+        :param heal_replenishment:то, что прибавляется к pet_health
         '''
-        self.pet_health += health_replenishment
+        self.pet_health += heal_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl / 5)
         if self.pet_health >= self.pet_max_stats:
             self.pet_health = self.pet_max_stats
             self.pet_hapiness_replenishment(self.pet_hap_repl / -5)
 
-    def sleep_loss(self, sleep_loss):
+    def sleep_loss(self, sl_loss):
         '''
-        Принимает sleep_loss
-        :param sleep_loss:то, что вычитается из pet_sleep
+        Принимает sl_loss
+        :param sl_loss:то, что вычитается из pet_sleep
         '''
-        self.pet_sleep -= sleep_loss
+        self.pet_sleep -= sl_loss
         self.pet_hapiness_loss(self.pet_hap_loss * 2)
         if self.pet_sleep <= self.pet_min_stats or self.pet_sleep >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Sleep'
 
-    def sleep_replenishment(self, sleep_replenishment):
+    def sleep_replenishment(self, sl_replenishment):
         '''
-        Принимает sleep_replenishment
-        :param sleep_replenishment:то, что прибавляется к pet_sleep
+        Принимает sl_replenishment
+        :param sl_replenishment:то, что прибавляется к pet_sleep
         '''
-        self.pet_sleep += sleep_replenishment
+        self.pet_sleep += sl_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl)
         if self.pet_sleep >= self.pet_max_stats:
             self.pet_sleep = self.pet_max_stats
@@ -149,5 +149,5 @@ class Pet:
         Ничего не принимает
         :return: возвращает death_reason, если питомец умер
         '''
-        if self.pet_death == True:
+        if self.pet_death is True:
             return self.death_reason

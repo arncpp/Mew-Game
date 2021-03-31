@@ -33,9 +33,14 @@ class MyGlobals(object):
     menu = pygame.image.load("images\\button\\but_menu.png")
     menu_button = pygame.image.load("images\\button\\button_menu_lofi.png")
 
-    # -----Отступы для текста на кнопке---------
+    # ---------Константы для кнопок-------------
     text_indent_btn_x = 20
     text_indent_btn_y = -5
+    btn_width = 100
+    btn_height = 38
+    btn_x_in_game = 10
+    btn_y_in_game = 40
+    btn_y_indent = 50
 
     # ----Загрузка спрайтов для анимации кота---
     cat_sit = [pygame.image.load(
@@ -71,3 +76,38 @@ class MyGlobals(object):
     # ----------Звуковые каналы--------------------
     channel1 = pygame.mixer.Channel(0)
     channel2 = pygame.mixer.Channel(1)
+    sounds_volume = 0.2
+    music_volume = 0.5
+    # -----------------Цвета-----------------------
+    BlACK = (0, 0, 0)
+    EGGPLANT = (43, 0, 92)
+    PERIWINKLE = (158, 91, 172)
+    DARK_PURPLE = (135, 0, 148)
+    DOVE = (52, 14, 18)
+    SYRUP = (108, 90, 106)
+
+    # ----------------Конфигурация текста----------
+    font_size_in_menu = 15
+    text_x_in_menu = 377
+    text_y_in_menu = 50
+    text_x_indent_in_menu = 3
+    text_y_indent_in_menu = 30
+    text_x_stats = 587
+    text_y_stats = 50
+    text_x_indent = 5
+    text_y_indent = 40
+    font_size_gameover = 30
+    cat_name_x_gameover = 470
+    cat_name_y_gameover = 150
+    cat_name_y_indent_gameover = 40
+    text_x_gameover_dead = 217
+    text_x_gameover_death_reason = 417
+    text_x_gameover_close = 260
+    main_font_size = 25
+
+    # -----------Конфигурация анимации--------------
+    bg_lofi_deceleration = 4
+    bg_menu_deceleration = 49
+    cat_deceleration = 11
+    cat_dead_indent_x = -5
+    cat_dead_indent_y = 40
