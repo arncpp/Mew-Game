@@ -12,6 +12,7 @@ pygame.init()
 pygame.display.set_caption(MyGlobals.title)
 pygame.display.set_icon(MyGlobals.icon)
 fps = pygame.time.Clock()
+
 # -------------Кнопки--------------------
 button_factory = ButtonFactory()
 button_food = button_factory.button_food()

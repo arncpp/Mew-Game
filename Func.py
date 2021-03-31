@@ -155,7 +155,8 @@ def pet_died():
     '''
     print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.cat_name_x_gameover - len(
-                   MyGlobals.cat.get_pet_name()) * 10, MyGlobals.cat_name_y_gameover,
+                   MyGlobals.cat.get_pet_name()) * 10,
+               MyGlobals.cat_name_y_gameover,
                font_color=MyGlobals.EGGPLANT,
                font_size=MyGlobals.font_size_gameover)
     print_text(MyGlobals.cat.get_pet_name(),

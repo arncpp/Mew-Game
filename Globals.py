@@ -78,6 +78,7 @@ class MyGlobals(object):
     channel2 = pygame.mixer.Channel(1)
     sounds_volume = 0.2
     music_volume = 0.5
+
     # -----------------Цвета-----------------------
     BlACK = (0, 0, 0)
     EGGPLANT = (43, 0, 92)
@@ -110,6 +111,7 @@ class MyGlobals(object):
     input_text_bg = (52, 14, 18)
     input_text_fd = (117, 65, 71)
     input_text_size = 20
+
     # -----------Конфигурация анимации--------------
     bg_lofi_deceleration = 4
     bg_menu_deceleration = 49

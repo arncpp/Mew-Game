@@ -9,7 +9,6 @@ class Button:
                  active_color, click_im,
                  action, sound=None, num=None):
         '''
-
         :param position_x: позиция по x
         :param position_y: позиция по y
         :param width: длина кнопки
@@ -69,10 +68,8 @@ class Button:
         Функция, которая регистрирует нажатия на кнопку и выполняет действие,
         которое было передано в класс кнопки
         '''
-
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed(3)
-
         if self.position_x < mouse[0] < self.position_x + self.width and \
                 self.position_y < mouse[1] < self.position_y + self.height:
             if click[0] == 1 and self.action is not None:
