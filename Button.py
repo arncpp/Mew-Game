@@ -9,9 +9,6 @@ from Func import prev_track
 import pygame
 
 
-
-
-
 class Button:
     def __init__(self, position_x, position_y, width, height, inactive_color,
                  active_color, click_im,
@@ -40,14 +37,13 @@ class Button:
         self.num = num
         self.sound = sound
 
-    def draw(self, message, text_x, text_y):
+    def draw(self, message):
         '''
         Рисует кнопку на экране
         Если мышка не наведена на кнопку, то используется inactive_color
         Если наведена, то кнопка меняет цвет на active_color
         При нажатии на кнопку используется click_im
         :param message: принимает сообщение, которое требуется вывести на кнопку
-        :return: ничего не возвращает
         '''
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
@@ -57,24 +53,26 @@ class Button:
             if click[0] == 1 and self.action != None:
                 MyGlobals.display.blit(self.click_im,
                                        (self.position_x, self.position_y))
-                print_text(message, self.position_x + text_x, self.position_y)
+                print_text(message,
+                           self.position_x + MyGlobals.text_indent_btn_x,
+                           self.position_y)
             else:
                 MyGlobals.display.blit(self.active_color,
                                        (self.position_x, self.position_y))
-                print_text(message, self.position_x + text_x,
-                           self.position_y + text_y)
+                print_text(message,
+                           self.position_x + MyGlobals.text_indent_btn_x,
+                           self.position_y + MyGlobals.text_indent_btn_y)
 
         else:
             MyGlobals.display.blit(self.inactive_color,
                                    (self.position_x, self.position_y))
-            print_text(message, self.position_x + text_x,
-                       self.position_y + text_y)
+            print_text(message, self.position_x + MyGlobals.text_indent_btn_x,
+                       self.position_y + MyGlobals.text_indent_btn_y)
 
     def action_button_click(self):
         '''
         Функция, которая регистрирует нажатия на кнопку и выполняет действие,
         которое было передано в класс кнопки
-        :return:ничего не возвращает
         '''
 
         mouse = pygame.mouse.get_pos()

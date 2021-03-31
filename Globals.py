@@ -33,6 +33,10 @@ class MyGlobals(object):
     menu = pygame.image.load("images\\button\\but_menu.png")
     menu_button = pygame.image.load("images\\button\\button_menu_lofi.png")
 
+    # -----Отступы для текста на кнопке---------
+    text_indent_btn_x = 20
+    text_indent_btn_y = -5
+
     # ----Загрузка спрайтов для анимации кота---
     cat_sit = [pygame.image.load(
         "images\\cat_sprites\\sit_col\\" + "sit_" + str(i) + ".png") for i in

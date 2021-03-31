@@ -19,7 +19,6 @@ def print_text(message, x, y, font_color=(0, 0, 0),
     :param font_color: цвет текста
     :param font_type: тип шрифта
     :param font_size: размер шрифта
-    :return: ничего не возвращает
     '''
     font_type = pygame.font.Font(font_type, font_size)
     text = font_type.render(message, True, font_color)
@@ -29,7 +28,6 @@ def print_text(message, x, y, font_color=(0, 0, 0),
 def draw_bg_lofi():
     '''
     Отрисовка анимации заднего фона в основной игре
-    :return: ничего не возвращает
     '''
     global bg_counter
     if bg_counter == len(MyGlobals.bg_lofi) * 4:
@@ -41,7 +39,6 @@ def draw_bg_lofi():
 def draw_bg_menu():
     '''
     Отрисовка анимации заднего фона в меню
-    :return: ничего не возвращает
     '''
     global bg_menu_counter
     if bg_menu_counter == len(MyGlobals.bg_menu) * 49:
@@ -53,7 +50,6 @@ def draw_bg_menu():
 def draw_cat_sit():
     '''
     Отрисовка анимации сидящего кота
-    :return: Ничего не возвращает
     '''
     global img_counter
     if img_counter == len(MyGlobals.cat_sit) * 11:
@@ -66,7 +62,6 @@ def draw_cat_sit():
 def draw_cat_dead():
     '''
     Отрисовка анимации смерти кота
-    :return: Ничего не возвращает
     '''
     global d_counter
     if d_counter == len(MyGlobals.death) * 11:
@@ -80,7 +75,6 @@ def draw_cat_dead():
 def play_music():
     '''
     Воспроизводит музыку в основной игре
-    :return:
     '''
     pygame.mixer.music.load(MyGlobals.bg_music[MyGlobals.current_track])
     pygame.mixer.music.play()
@@ -90,7 +84,6 @@ def play_music():
 def menu_mus():
     '''
     Функция бесконечно играет трек в меню
-    :return: ничего не возвращает
     '''
     pygame.mixer.music.load(MyGlobals.menu_track)
     pygame.mixer.music.play(-1)
@@ -100,7 +93,6 @@ def menu_mus():
 def next_track():
     '''
     Переводит на следующий трек
-    :return: ничего не возвращает
     '''
     MyGlobals.current_track = (MyGlobals.current_track
                                + 1) % MyGlobals.tracks_number
@@ -111,7 +103,6 @@ def next_track():
 def prev_track():
     '''
     Переводит на предыдущий трек
-    :return: ничего не возвращает
     '''
     MyGlobals.current_track = (MyGlobals.current_track
                                - 1) % MyGlobals.tracks_number
@@ -122,7 +113,6 @@ def prev_track():
 def mew_1():
     '''
     Функция воспроизводит первый тип мяуканья кота в нулевом звуковом канале
-    :return: ничего не возвращает
     '''
     MyGlobals.channel1.play(MyGlobals.mew_1)
     MyGlobals.mew_1.set_volume(0.2)
@@ -130,8 +120,7 @@ def mew_1():
 
 def mew_2():
     '''
-    Функция воспроизводит второй тип мяуканя кота в нулевом звуковом канале
-    :return: ничего не возвращает
+    Функция воспроизводит второй тип мяуканья кота в нулевом звуковом канале
     '''
     MyGlobals.channel1.play(MyGlobals.mew_2)
     MyGlobals.mew_2.set_volume(0.2)
@@ -140,7 +129,6 @@ def mew_2():
 def mrr():
     '''
     Функция воспроизводит мурлыканье кота в нулевом звуковом канале
-    :return: ничего не возвращает
     '''
     MyGlobals.channel1.play(MyGlobals.mrr)
     MyGlobals.mrr.set_volume(0.2)
@@ -149,7 +137,6 @@ def mrr():
 def eat_sound():
     '''
     Функция воспроизводит звуки еды кота в нулевом звуковом канале
-    :return: ничего не возвращает
     '''
     MyGlobals.channel1.play(MyGlobals.eat)
 
@@ -157,7 +144,6 @@ def eat_sound():
 def pet_died():
     '''
     Отрисовка 3d текста, если кот умер
-    :return: ничего не возвращает
     '''
     print_text(MyGlobals.cat.pet_name,
                470 - len(MyGlobals.cat.pet_name) / 2 * 20, 150,
@@ -181,6 +167,9 @@ def pet_died():
 
 
 def draw_pet_stats():
+    '''
+    отрисовка статистики кота
+    '''
     print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)), 587, 50)
     print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)), 592, 50,
                font_color=(135, 0, 148))
@@ -196,6 +185,9 @@ def draw_pet_stats():
 
 
 def print_menu_text():
+    '''
+    отрисовка инструкций в главном меню
+    '''
     print_text("To start typing name, press the SPACE BAR.", 377, 50,
                font_color=(52, 14, 18), font_size=15)
     print_text("To start typing name, press the SPACE BAR.", 380, 50,

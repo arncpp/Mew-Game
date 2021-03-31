@@ -24,7 +24,6 @@ class Pet:
         '''
         Принимает pet_hapiness_loss
         :param pet_hapiness_loss:то, что вычитается из pet_happiness
-        :return: ничего не возвращает
         '''
         self.pet_happiness -= pet_hapiness_loss
         if self.pet_happiness <= self.pet_min_stats:
@@ -35,7 +34,6 @@ class Pet:
         '''
         Принимает hap_replenishment
         :param hap_replenishment:то, что прибавляется к pet_happiness
-        :return: ничего не возвращает
         '''
         self.pet_happiness += hap_replenishment
         if self.pet_happiness >= self.pet_max_stats:
@@ -45,7 +43,6 @@ class Pet:
         '''
         Принимает hunger_loss
         :param hunger_loss:то, что вычитается из pet_hunger
-        :return: ничего не возвращает
         '''
         self.pet_hunger -= hunger_loss
         self.pet_hapiness_loss(self.pet_hap_loss)
@@ -57,7 +54,6 @@ class Pet:
         '''
         Принимает hunger_replenishment
         :param hunger_replenishment:то, что прибавляется к pet_hunger
-        :return: ничего не возвращает
         '''
         self.pet_hunger += hunger_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl)
@@ -69,7 +65,6 @@ class Pet:
         '''
         Принимает health_loss
         :param health_loss:то, что вычитается из pet_health
-        :return: ничего не возвращает
         '''
         self.pet_health -= health_loss
         self.pet_hapiness_loss(self.pet_hap_loss // 2)
@@ -81,7 +76,6 @@ class Pet:
         '''
         Принимает health_replenishment
         :param hunger_replenishment:то, что прибавляется к pet_health
-        :return: ничего не возвращает
         '''
         self.pet_health += health_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl / 5)
@@ -93,7 +87,6 @@ class Pet:
         '''
         Принимает sleep_loss
         :param sleep_loss:то, что вычитается из pet_sleep
-        :return: ничего не возвращает
         '''
         self.pet_sleep -= sleep_loss
         self.pet_hapiness_loss(self.pet_hap_loss * 2)
@@ -105,7 +98,6 @@ class Pet:
         '''
         Принимает sleep_replenishment
         :param sleep_replenishment:то, что прибавляется к pet_sleep
-        :return: ничего не возвращает
         '''
         self.pet_sleep += sleep_replenishment
         self.pet_hapiness_replenishment(self.pet_hap_repl)
@@ -118,7 +110,6 @@ class Pet:
         Принимает pet_sleep
         :param pet_sleep: устанавливает питомцу значение сна,
         которое было принято
-        :return: ничего не возвращает
         '''
         self.pet_sleep = pet_sleep
 
@@ -127,7 +118,6 @@ class Pet:
         Принимает pet_hunger
         :param pet_hunger: устанавливает питомцу значение еды,
         которое было принято
-        :return: ничего не возвращает
         '''
         self.pet_hunger = pet_hunger
 
@@ -136,7 +126,6 @@ class Pet:
         Принимает pet_happiness
         :param pet_happiness: устанавливает питомцу значение счастья,
         которое было принято
-        :return: ничего не возвращает
         '''
         self.pet_happiness = pet_happiness
 
@@ -145,7 +134,6 @@ class Pet:
         Принимает pet_health
         :param pet_health: устанавливает питомцу значение здоровья,
         которое было принято
-        :return: ничего не возвращает
         '''
         self.pet_health = pet_health
 
@@ -153,7 +141,6 @@ class Pet:
         '''
         Принимает name
         :param name: устанавливает питомцу имя, которое было принято
-        :return: ничего не возвращает
         '''
         self.pet_name = name
 
