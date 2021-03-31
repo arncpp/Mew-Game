@@ -24,21 +24,21 @@
 <img src="https://b.radikal.ru/b30/2103/79/aeab9b79b642.png" alt="open console screenshot"></p>
 <p><strong>4. Попробуйте выполнить команду pip, еслы вы все сделали правильно должен вылезти список команд.</strong>
 <img src="https://b.radikal.ru/b13/2103/83/456ad752e69d.png" alt="pip screenshot"></p>
-<p><strong>5. Установите pygame используя команду &quot;pip install pygame&quot;.</strong>
+<p><strong>5. Установите pygame используя команду <p><code>pip install pygame</code></p>
 <img src="https://a.radikal.ru/a32/2103/da/42f713b6d000.png" alt="pip install screenshot"></p>
 </details>
 <h3 id="-"><strong>Второй этап: скачивание и запуска проекта.</strong></h3>
 <p><strong>1. Скачайте проект с github любым удобным для вас способом (gitclone или по <a href="https://github.com/arncpp/Tamagotchi-Game.git">ссылке</a>).</strong></p>
-<p><strong>2. В консоли перейдите в папку с игрой при помощи команды cd.</strong>
+<p><strong>2. В консоли перейдите в папку с игрой при помощи команды <p><code>cd</code></p>
 <img src="https://a.radikal.ru/a24/2103/df/919e8eaaf2a3.png" alt="cd screen"></p>
-<p><strong>3. Запустите игру при помощи команды &quot;python TamGame.py&quot;.</strong>
+<p><strong>3. Запустите игру при помощи команды <p><code>python TamGame.py</code></p>
 <img src="https://b.radikal.ru/b22/2103/79/4ca653c885c9.png" alt="star screenshot"></p>
 <h3 id="-4-"><strong>4. Наслаждайтесь!</strong></h3>
 <h2 id="-pycharm">Как запустить игру на PyCharm</h2>
 <p><strong>1. Создайте пустой проект на PyCharm: (<em>File -&gt; New Project</em>)</strong></p>
 <p><strong>2. Установите библиотеку PyGame: (<em>File -&gt; Settings -&gt; Project:&quot;название&quot; -&gt; Python Interpreter -&gt; Install -&gt; pygame</em>)</strong></p>
 <p><strong>3. Зайдите в убунту-консоль, перейдите в папку с проектом (с помощью cd)</strong></p>
-<p><strong>4. Напишите (</strong>git clone <a href="https://github.com/arncpp/Tamagotchi-Game.git)">https://github.com/arncpp/Tamagotchi-Game.git)</a></p>
+<p><strong>4. Напишите <p><code>git clone https://github.com/arncpp/Tamagotchi-Game.git</code></p>
 <p><strong>5. Подождите, пока скачается. После скачивания откройте проект в PyCharm.</strong></p>
 <p><strong>6. Запустите файл TamGame.py</strong></p>
 <h3 id="-7-"><strong>7. Играйте с котёнком, слушайте прекрасную музыку и радуйтесь жизни!</strong></h3>
