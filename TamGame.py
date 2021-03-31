@@ -25,7 +25,7 @@ button_prev = button_factory.button_prev()
 def run_game():
     play_music()
     game = True
-    pygame.display.set_caption(MyGlobals.cat.pet_name)
+    pygame.display.set_caption(MyGlobals.cat.get_pet_name())
     while game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -34,13 +34,15 @@ def run_game():
                 else:
                     stats = open("stats.txt", "w")
                     stats.writelines(str(time.time()) + "\n")
-                    stats.writelines(str(int(MyGlobals.cat.pet_hunger)) + "\n")
-                    stats.writelines(str(int(MyGlobals.cat.pet_sleep)) + "\n")
                     stats.writelines(
-                        str(int(MyGlobals.cat.pet_happiness)) + "\n")
+                        str(int(MyGlobals.cat.get_pet_hunger())) + "\n")
                     stats.writelines(
-                        str(int(MyGlobals.cat.pet_health)) + "\n")
-                    stats.writelines(MyGlobals.cat.pet_name)
+                        str(int(MyGlobals.cat.get_pet_sleep())) + "\n")
+                    stats.writelines(
+                        str(int(MyGlobals.cat.get_pet_happiness())) + "\n")
+                    stats.writelines(
+                        str(int(MyGlobals.cat.get_pet_health())) + "\n")
+                    stats.writelines(MyGlobals.cat.get_pet_name())
                 pygame.quit()
                 quit()
             elif event.type == pygame.MOUSEBUTTONDOWN and \
@@ -85,9 +87,6 @@ but_st = Button(20, 80, 100, 38, MyGlobals.menu_button, MyGlobals.but_ac,
                 MyGlobals.but_cl, run_game)
 
 
-# --------------------------------------
-
-
 # ---------Функция показа меню---------
 def show_menu():
     menu_mus()
@@ -109,7 +108,8 @@ def show_menu():
                         if event.key == pygame.K_TAB:
                             need_input = False
                             MyGlobals.cat.set_name(input_text)
-                            pygame.display.set_caption(MyGlobals.cat.pet_name)
+                            pygame.display.set_caption(
+                                MyGlobals.cat.get_pet_name())
                             input_text = ''
                         elif event.key == pygame.K_BACKSPACE:
                             input_text = input_text[:-1]
@@ -118,10 +118,15 @@ def show_menu():
                     elif event.key == pygame.K_SPACE:
                         need_input = True
             draw_bg_menu()
-            print_text(str(input_text), 382, 110, font_color=(52, 14, 18),
-                       font_size=20)
-            print_text(str(input_text), 385, 110, font_color=(117, 65, 71),
-                       font_size=20)
+            print_text(str(input_text), MyGlobals.input_text_x,
+                       MyGlobals.input_text_y,
+                       font_color=MyGlobals.input_text_bg,
+                       font_size=MyGlobals.input_text_size)
+            print_text(str(input_text),
+                       MyGlobals.input_text_x + MyGlobals.input_text_indent_x,
+                       MyGlobals.input_text_y,
+                       font_color=MyGlobals.input_text_fd,
+                       font_size=MyGlobals.input_text_size)
             print_menu_text()
             but_st.draw("Start")
             pygame.display.update()

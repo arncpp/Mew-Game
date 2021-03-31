@@ -153,14 +153,14 @@ def pet_died():
     '''
     Отрисовка 3d текста, если кот умер
     '''
-    print_text(MyGlobals.cat.pet_name,
+    print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.cat_name_x_gameover - len(
-                   MyGlobals.cat.pet_name) * 10, MyGlobals.cat_name_y_gameover,
+                   MyGlobals.cat.get_pet_name()) * 10, MyGlobals.cat_name_y_gameover,
                font_color=MyGlobals.EGGPLANT,
                font_size=MyGlobals.font_size_gameover)
-    print_text(MyGlobals.cat.pet_name,
+    print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.text_x_indent + MyGlobals.cat_name_x_gameover
-               - len(MyGlobals.cat.pet_name) * 10,
+               - len(MyGlobals.cat.get_pet_name()) * 10,
                MyGlobals.cat_name_y_gameover,
                font_color=MyGlobals.PERIWINKLE,
                font_size=MyGlobals.font_size_gameover)
@@ -204,30 +204,30 @@ def draw_pet_stats():
     '''
     отрисовка статистики кота
     '''
-    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)),
+    print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
                MyGlobals.text_x_stats, MyGlobals.text_y_stats)
-    print_text("Food:  " + str(int(MyGlobals.cat.pet_hunger)),
+    print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats,
                font_color=MyGlobals.DARK_PURPLE)
-    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)),
+    print_text("Sleep: " + str(int(MyGlobals.cat.get_pet_sleep())),
                MyGlobals.text_x_stats,
                MyGlobals.text_y_stats + MyGlobals.text_y_indent)
-    print_text("Sleep: " + str(int(MyGlobals.cat.pet_sleep)),
+    print_text("Sleep: " + str(int(MyGlobals.cat.get_pet_sleep())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats + MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)
-    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)),
+    print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
                MyGlobals.text_x_stats,
                MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent)
-    print_text("Happy: " + str(int(MyGlobals.cat.pet_happiness)),
+    print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)
-    print_text("Health:" + str(int(MyGlobals.cat.pet_health)),
+    print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
                MyGlobals.text_x_stats,
                MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent)
-    print_text("Health:" + str(int(MyGlobals.cat.pet_health)),
+    print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)

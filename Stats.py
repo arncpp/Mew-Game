@@ -52,9 +52,9 @@ def stats_rec():
     MyGlobals.cat.set_sleep(int(stati['sleep']))
     MyGlobals.cat.set_happiness(int(stati['happy']))
     MyGlobals.cat.set_health(int(stati['health']))
-    MyGlobals.cat.set_hunger(max(6, MyGlobals.cat.pet_hunger - food_loss))
-    MyGlobals.cat.set_sleep(max(6, MyGlobals.cat.pet_sleep - sleep_loss))
+    MyGlobals.cat.set_hunger(max(6, MyGlobals.cat.get_pet_hunger() - food_loss))
+    MyGlobals.cat.set_sleep(max(6, MyGlobals.cat.get_pet_sleep() - sleep_loss))
     MyGlobals.cat.set_happiness(
-        max(6, MyGlobals.cat.pet_happiness - sleep_loss))
-    MyGlobals.cat.set_health(max(6, MyGlobals.cat.pet_health - health_loss))
+        max(6, MyGlobals.cat.get_pet_happiness() - sleep_loss))
+    MyGlobals.cat.set_health(max(6, MyGlobals.cat.get_pet_health() - health_loss))
     MyGlobals.cat.set_name(stati['name'])

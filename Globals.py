@@ -104,7 +104,12 @@ class MyGlobals(object):
     text_x_gameover_death_reason = 417
     text_x_gameover_close = 260
     main_font_size = 25
-
+    input_text_x = 382
+    input_text_indent_x = 3
+    input_text_y = 110
+    input_text_bg = (52, 14, 18)
+    input_text_fd = (117, 65, 71)
+    input_text_size = 20
     # -----------Конфигурация анимации--------------
     bg_lofi_deceleration = 4
     bg_menu_deceleration = 49
