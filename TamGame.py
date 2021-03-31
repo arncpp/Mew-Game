@@ -91,7 +91,7 @@ but_st = Button(20, 80, 100, 38, MyGlobals.menu_button, MyGlobals.but_ac,
 def show_menu():
     menu_mus()
     need_input = False
-    input_text = ''
+    input_text = ""
     show = True
     stats_rec()
     if MyGlobals.isempty:
@@ -110,7 +110,7 @@ def show_menu():
                             MyGlobals.cat.set_name(input_text)
                             pygame.display.set_caption(
                                 MyGlobals.cat.get_pet_name())
-                            input_text = ''
+                            input_text = ""
                         elif event.key == pygame.K_BACKSPACE:
                             input_text = input_text[:-1]
                         else:
@@ -134,5 +134,5 @@ def show_menu():
         run_game()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     show_menu()

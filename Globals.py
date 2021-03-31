@@ -12,7 +12,7 @@ class MyGlobals(object):
     display = pygame.display.set_mode((display_width, display_height))
 
     # ------------Иконка игры------------------
-    icon = pygame.image.load('images\icon.png')
+    icon = pygame.image.load("images\icon.png")
 
     # --------------Питомец-------------------
     cat_width = 230

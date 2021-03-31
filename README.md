@@ -20,20 +20,21 @@
 <p><strong>1. Скачайте python3 с официального <a href="https://www.python.org/downloads/">сайта</a> и установите его.</strong>
 <strong>2. Во время установки <em>обязательно</em> поставьте галочку &quot;Add Python 3.x to PATH&quot;.</strong>
 <img src="https://python-scripts.com/wp-content/uploads/2018/06/win-install-dialog.40e3ded144b0.png" alt="add path screenshot"></p>
-<p><strong>3. Когда установка закончится запустите консоль (например нажать комбинацию Win + R и в открывшемсчя окне вписать cmd)</strong>
-<img src="https://b.radikal.ru/b30/2103/79/aeab9b79b642.png" alt="open console screenshot"></p>
-<p><strong>4. Попробуйте выполнить команду pip, еслы вы все сделали правильно должен вылезти список команд.</strong>
-<img src="https://b.radikal.ru/b13/2103/83/456ad752e69d.png" alt="pip screenshot"></p>
+<p><strong>3. Когда установка закончится запустите консоль нажать комбинацию Win + R и в открывшемся окне вписать <p><code>cmd</code></p>
+<p><strong>4. Попробуйте выполнить команду <p><code>pip</code></p>
+если вы все сделали правильно должен вылезти список команд.
 <p><strong>5. Установите pygame используя команду <p><code>pip install pygame</code></p>
-<img src="https://a.radikal.ru/a32/2103/da/42f713b6d000.png" alt="pip install screenshot"></p>
 </details>
 <h3 id="-"><strong>Второй этап: скачивание и запуска проекта.</strong></h3>
 <p><strong>1. Скачайте проект с github любым удобным для вас способом (gitclone или по <a href="https://github.com/arncpp/Tamagotchi-Game.git">ссылке</a>).</strong></p>
 <p><strong>2. В консоли перейдите в папку с игрой при помощи команды <p><code>cd</code></p>
-<img src="https://a.radikal.ru/a24/2103/df/919e8eaaf2a3.png" alt="cd screen"></p>
 <p><strong>3. Запустите игру при помощи команды <p><code>python TamGame.py</code></p>
-<img src="https://b.radikal.ru/b22/2103/79/4ca653c885c9.png" alt="star screenshot"></p>
 <h3 id="-4-"><strong>4. Наслаждайтесь!</strong></h3>
+<details>
+<summary>Команды, которые нужно выполнить, для запуска через консоль:</summary>
+<p><code>pip install pygame</code></p>
+<p><code>cd</code></p>
+<p><code>python TamGame.py</code></p></details>
 <h2 id="-pycharm">Как запустить игру на PyCharm</h2>
 <p><strong>1. Создайте пустой проект на PyCharm: (<em>File -&gt; New Project</em>)</strong></p>
 <p><strong>2. Установите библиотеку PyGame: (<em>File -&gt; Settings -&gt; Project:&quot;название&quot; -&gt; Python Interpreter -&gt; Install -&gt; pygame</em>)</strong></p>
