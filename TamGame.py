@@ -1,4 +1,3 @@
-# ----------Импорт--------------
 from Button import Button
 from Button import ButtonFactory
 from Func import draw_bg_lofi
@@ -17,7 +16,8 @@ from Globals import MyGlobals
 import pygame
 from Stats import stats_rec
 import time
-# ------------------------------
+
+
 
 pygame.init()
 # ---------Настройки окна----------------
@@ -74,15 +74,15 @@ def run_game():
             MyGlobals.cat.health_loss(0.003)
             draw_pet_stats()
             draw_cat_sit()
-            button_food.draw("Food")
-            button_sleep.draw("Sleep")
-            button_health.draw("Heal")
+            button_food.draw("Food", 20, -5)
+            button_sleep.draw("Sleep", 20, -5)
+            button_health.draw("Heal", 20, -5)
             print_text(str(
                 MyGlobals.bg_music[MyGlobals.current_track][
                 MyGlobals.bg_music[MyGlobals.current_track].rfind(
                     "\\") + 1:-4]), 10, 545)
-            button_next.draw("Next")
-            button_prev.draw("Prev")
+            button_next.draw("Next", 20, -5)
+            button_prev.draw("Prev", 20, -5)
         else:
             draw_bg_lofi()
             draw_cat_dead()
@@ -135,7 +135,7 @@ def show_menu():
             print_text(str(input_text), 385, 110, font_color=(117, 65, 71),
                        font_size=20)
             print_menu_text()
-            but_st.draw("Start")
+            but_st.draw("Start", 20, -5)
             pygame.display.update()
     else:
         run_game()

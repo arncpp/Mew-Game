@@ -1,7 +1,6 @@
-# ----------Импорт--------------
 from Globals import MyGlobals
 import time
-# ------------------------------
+
 
 
 def stats_rec():

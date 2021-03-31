@@ -1,4 +1,3 @@
-# ----------Импорт--------------
 from Globals import MyGlobals
 from Func import eat_sound
 from Func import mrr
@@ -8,7 +7,9 @@ from Func import next_track
 from Func import print_text
 from Func import prev_track
 import pygame
-# ------------------------------
+
+
+
 
 
 class Button:
@@ -39,7 +40,7 @@ class Button:
         self.num = num
         self.sound = sound
 
-    def draw(self, message):
+    def draw(self, message, text_x, text_y):
         '''
         Рисует кнопку на экране
         Если мышка не наведена на кнопку, то используется inactive_color
@@ -51,22 +52,23 @@ class Button:
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
 
-        if self.position_y < mouse[
-            1] < self.position_y + self.height and self.position_x < mouse[
-            0] < self.position_x + self.width:
+        if self.position_y < mouse[1] < self.position_y + self.height \
+                and self.position_x < mouse[0] < self.position_x + self.width:
             if click[0] == 1 and self.action != None:
                 MyGlobals.display.blit(self.click_im,
                                        (self.position_x, self.position_y))
-                print_text(message, self.position_x + 20, self.position_y)
+                print_text(message, self.position_x + text_x, self.position_y)
             else:
                 MyGlobals.display.blit(self.active_color,
                                        (self.position_x, self.position_y))
-                print_text(message, self.position_x + 20, self.position_y - 5)
+                print_text(message, self.position_x + text_x,
+                           self.position_y + text_y)
 
         else:
             MyGlobals.display.blit(self.inactive_color,
                                    (self.position_x, self.position_y))
-            print_text(message, self.position_x + 20, self.position_y - 5)
+            print_text(message, self.position_x + text_x,
+                       self.position_y + text_y)
 
     def action_button_click(self):
         '''
@@ -78,9 +80,8 @@ class Button:
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed(3)
 
-        if self.position_x < mouse[
-            0] < self.position_x + self.width and self.position_y < mouse[
-            1] < self.position_y + self.height:
+        if self.position_x < mouse[0] < self.position_x + self.width and \
+                self.position_y < mouse[1] < self.position_y + self.height:
             if click[0] == 1 and self.action is not None:
                 if self.num is not None:
                     self.action(self.num)

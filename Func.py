@@ -1,7 +1,7 @@
-# ----------Импорт--------------
+
 import pygame
 from Globals import MyGlobals
-# ------------------------------
+
 
 bg_counter = 0
 img_counter = 0

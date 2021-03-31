@@ -1,6 +1,6 @@
-
 class Pet:
-    def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger):
+    def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger,
+                 pet_max_stats, pet_min_stats):
         '''
         Основной класс питомца
         :param pet_health: здоровье питомца
@@ -15,6 +15,10 @@ class Pet:
         self.pet_death = False
         self.death_reason = ''
         self.pet_name = ''
+        self.pet_max_stats = pet_max_stats
+        self.pet_min_stats = pet_min_stats
+        self.pet_hap_loss = 0.002
+        self.pet_hap_repl = 10
 
     def pet_hapiness_loss(self, pet_hapiness_loss):
         '''
@@ -23,7 +27,7 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_happiness -= pet_hapiness_loss
-        if self.pet_happiness <= 5:
+        if self.pet_happiness <= self.pet_min_stats:
             self.pet_death = True
             self.death_reason = "Sadness"
 
@@ -34,8 +38,8 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_happiness += hap_replenishment
-        if self.pet_happiness >= 106:
-            self.pet_happiness = 106
+        if self.pet_happiness >= self.pet_max_stats:
+            self.pet_happiness = self.pet_max_stats
 
     def hunger_loss(self, hunger_loss):
         '''
@@ -44,8 +48,8 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_hunger -= hunger_loss
-        self.pet_hapiness_loss(0.002)
-        if self.pet_hunger <= 5 or self.pet_hunger >= 105:
+        self.pet_hapiness_loss(self.pet_hap_loss)
+        if self.pet_hunger <= self.pet_min_stats or self.pet_hunger >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Food'
 
@@ -56,8 +60,8 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_hunger += hunger_replenishment
-        self.pet_hapiness_replenishment(10)
-        if self.pet_hunger >= 106:
+        self.pet_hapiness_replenishment(self.pet_hap_repl)
+        if self.pet_hunger >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Food'
 
@@ -68,8 +72,8 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_health -= health_loss
-        self.pet_hapiness_loss(0.001)
-        if self.pet_health <= 5:
+        self.pet_hapiness_loss(self.pet_hap_loss // 2)
+        if self.pet_health <= self.pet_min_stats:
             self.pet_death = True
             self.death_reason = 'Health'
 
@@ -80,10 +84,10 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_health += health_replenishment
-        self.pet_hapiness_replenishment(2)
-        if self.pet_health >= 106:
-            self.pet_health = 106
-            self.pet_hapiness_replenishment(-2)
+        self.pet_hapiness_replenishment(self.pet_hap_repl / 5)
+        if self.pet_health >= self.pet_max_stats:
+            self.pet_health = self.pet_max_stats
+            self.pet_hapiness_replenishment(self.pet_hap_repl / -5)
 
     def sleep_loss(self, sleep_loss):
         '''
@@ -92,8 +96,8 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_sleep -= sleep_loss
-        self.pet_hapiness_loss(0.004)
-        if self.pet_sleep <= 5 or self.pet_sleep >= 106:
+        self.pet_hapiness_loss(self.pet_hap_loss * 2)
+        if self.pet_sleep <= self.pet_min_stats or self.pet_sleep >= self.pet_max_stats:
             self.pet_death = True
             self.death_reason = 'Sleep'
 
@@ -104,10 +108,10 @@ class Pet:
         :return: ничего не возвращает
         '''
         self.pet_sleep += sleep_replenishment
-        self.pet_hapiness_replenishment(10)
-        if self.pet_sleep >= 106:
-            self.pet_sleep = 106
-            self.pet_hapiness_replenishment(-10)
+        self.pet_hapiness_replenishment(self.pet_hap_repl)
+        if self.pet_sleep >= self.pet_max_stats:
+            self.pet_sleep = self.pet_max_stats
+            self.pet_hapiness_replenishment(-self.pet_hap_repl)
 
     def set_sleep(self, pet_sleep):
         '''
