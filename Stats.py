@@ -2,7 +2,6 @@ from Globals import MyGlobals
 import time
 
 
-
 def stats_rec():
     '''
     Записывает в файл статистику (food, happy, sleep, time,name)
@@ -17,12 +16,16 @@ def stats_rec():
     в таком случае стартовое меню не запускается, а запускается основное
     игровое окно
     '''
-    stats = open("stats.txt", "r")
     n_time = time.time()
     stati = {'time': '', 'food': '', 'sleep': '', 'happy': '',
              'health': '', 'name': ''}
-    for i, line in enumerate(list(stats.readlines())):
-        stati[list(stati.keys())[i]] = line
+    try:
+        with open("stats.txt", "r") as stats:
+            for i, line in enumerate(list(stats.readlines())):
+                stati[list(stati.keys())[i]] = line
+            stats.close()
+    except IOError:
+        open("stats.txt", "w").close()
     if stati['time'] == '':
         MyGlobals.isempty = True
         stati['time'] = time.time()
