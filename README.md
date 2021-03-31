@@ -15,8 +15,8 @@
 </blockquote>
 <h1 id="-arncpp">Гайд по запуску Тамагочи от arncpp</h1>
 <details>
-<summary><h3 id="-python-pygame-"><strong>Первый этап: установка python и pygame</strong></h3></summary>
-<h5 id="-python3-pygame-"><em>Если у вас уже установлен python3 и вы можете самостоятельно установить библиотеку pygame — пропустите этот этап</em></h5>
+<summary><h3 id="-python-pygame-"><strong>Первый этап: установка python и pygame</strong></h3>
+<h5 id="-python3-pygame-"><em>Если у вас уже установлен python3 и вы можете самостоятельно установить библиотеку pygame — пропустите этот этап</em></h5></summary>
 <p><strong>1. Скачайте python3 с официального <a href="https://www.python.org/downloads/">сайта</a> и установите его.</strong>
 <strong>2. Во время установки <em>обязательно</em> поставьте галочку &quot;Add Python 3.x to PATH&quot;.</strong>
 <img src="https://python-scripts.com/wp-content/uploads/2018/06/win-install-dialog.40e3ded144b0.png" alt="add path screenshot"></p>
@@ -38,7 +38,7 @@
 <p><strong>1. Создайте пустой проект на PyCharm: (<em>File -&gt; New Project</em>)</strong></p>
 <p><strong>2. Установите библиотеку PyGame: (<em>File -&gt; Settings -&gt; Project:&quot;название&quot; -&gt; Python Interpreter -&gt; Install -&gt; pygame</em>)</strong></p>
 <p><strong>3. Зайдите в убунту-консоль, перейдите в папку с проектом (с помощью cd)</strong></p>
-<p><strong>4. Напишите (*</strong>git clone <a href="https://github.com/arncpp/Tamagotchi-Game.git***)**">https://github.com/arncpp/Tamagotchi-Game.git***)**</a></p>
+<p><strong>4. Напишите (</strong>git clone <a href="https://github.com/arncpp/Tamagotchi-Game.git)">https://github.com/arncpp/Tamagotchi-Game.git)</a></p>
 <p><strong>5. Подождите, пока скачается. После скачивания откройте проект в PyCharm.</strong></p>
 <p><strong>6. Запустите файл TamGame.py</strong></p>
 <h3 id="-7-"><strong>7. Играйте с котёнком, слушайте прекрасную музыку и радуйтесь жизни!</strong></h3>
