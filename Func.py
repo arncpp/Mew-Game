@@ -11,7 +11,7 @@ bg_menu_counter = 0
 def print_text(message, x, y, font_color=MyGlobals.BlACK,
                font_type="images/pixelsh.ttf",
                font_size=MyGlobals.main_font_size):
-    '''
+    """
     Функция печати текста на экране
     :param message: сообщение, которое требуется вывести на экран
     :param x: позиция по x
@@ -19,16 +19,16 @@ def print_text(message, x, y, font_color=MyGlobals.BlACK,
     :param font_color: цвет текста
     :param font_type: тип шрифта
     :param font_size: размер шрифта
-    '''
+    """
     font_type = pygame.font.Font(font_type, font_size)
     text = font_type.render(message, True, font_color)
     MyGlobals.display.blit(text, (x, y))
 
 
 def draw_bg_lofi():
-    '''
+    """
     Отрисовка анимации заднего фона в основной игре
-    '''
+    """
     global bg_counter
     if bg_counter == len(MyGlobals.bg_lofi) * MyGlobals.bg_lofi_deceleration:
         bg_counter = 0
@@ -39,9 +39,9 @@ def draw_bg_lofi():
 
 
 def draw_bg_menu():
-    '''
+    """
     Отрисовка анимации заднего фона в меню
-    '''
+    """
     global bg_menu_counter
     if bg_menu_counter == len(
             MyGlobals.bg_menu) * MyGlobals.bg_menu_deceleration:
@@ -53,9 +53,9 @@ def draw_bg_menu():
 
 
 def draw_cat_sit():
-    '''
+    """
     Отрисовка анимации сидящего кота
-    '''
+    """
     global img_counter
     if img_counter == len(MyGlobals.cat_sit) * MyGlobals.cat_deceleration:
         img_counter = 0
@@ -66,9 +66,9 @@ def draw_cat_sit():
 
 
 def draw_cat_dead():
-    '''
+    """
     Отрисовка анимации смерти кота
-    '''
+    """
     global d_counter
     if d_counter == len(MyGlobals.death) * MyGlobals.cat_deceleration:
         d_counter -= 1
@@ -81,27 +81,27 @@ def draw_cat_dead():
 
 
 def play_music():
-    '''
+    """
     Воспроизводит музыку в основной игре
-    '''
+    """
     pygame.mixer.music.load(MyGlobals.bg_music[MyGlobals.current_track])
     pygame.mixer.music.play()
     pygame.mixer.music.set_endevent(MyGlobals.NEXT)
 
 
 def menu_mus():
-    '''
+    """
     Функция бесконечно играет трек в меню
-    '''
+    """
     pygame.mixer.music.load(MyGlobals.menu_track)
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(MyGlobals.music_volume)
 
 
 def next_track():
-    '''
+    """
     Переводит на следующий трек
-    '''
+    """
     MyGlobals.current_track = (MyGlobals.current_track
                                + 1) % MyGlobals.tracks_number
     pygame.mixer.music.load(MyGlobals.bg_music[MyGlobals.current_track])
@@ -109,9 +109,9 @@ def next_track():
 
 
 def prev_track():
-    '''
+    """
     Переводит на предыдущий трек
-    '''
+    """
     MyGlobals.current_track = (MyGlobals.current_track
                                - 1) % MyGlobals.tracks_number
     pygame.mixer.music.load(MyGlobals.bg_music[MyGlobals.current_track])
@@ -119,25 +119,25 @@ def prev_track():
 
 
 def mew_1():
-    '''
+    """
     Функция воспроизводит первый тип мяуканья кота в нулевом звуковом канале
-    '''
+    """
     MyGlobals.channel1.play(MyGlobals.mew_1)
     MyGlobals.mew_1.set_volume(MyGlobals.sounds_volume)
 
 
 def mew_2():
-    '''
+    """
     Функция воспроизводит второй тип мяуканья кота в нулевом звуковом канале
-    '''
+    """
     MyGlobals.channel1.play(MyGlobals.mew_2)
     MyGlobals.mew_2.set_volume(MyGlobals.sounds_volume)
 
 
 def mrr():
-    '''
+    """
     Функция воспроизводит мурлыканье кота в нулевом звуковом канале
-    '''
+    """
     MyGlobals.channel1.play(MyGlobals.mrr)
     MyGlobals.mrr.set_volume(MyGlobals.sounds_volume)
 
@@ -150,9 +150,9 @@ def eat_sound():
 
 
 def pet_died():
-    '''
+    """
     Отрисовка 3d текста, если кот умер
-    '''
+    """
     print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.cat_name_x_gameover - len(
                    MyGlobals.cat.get_pet_name()) * 10,
@@ -202,9 +202,9 @@ def pet_died():
 
 
 def draw_pet_stats():
-    '''
-    отрисовка статистики кота
-    '''
+    """
+    Отрисовка статистики кота
+    """
     print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
                MyGlobals.text_x_stats, MyGlobals.text_y_stats)
     print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
@@ -235,9 +235,9 @@ def draw_pet_stats():
 
 
 def print_menu_text():
-    '''
-    отрисовка инструкций в главном меню
-    '''
+    """
+    Отрисовка инструкций в главном меню
+    """
     print_text("To start typing name, press the SPACE BAR.",
                MyGlobals.text_x_in_menu, MyGlobals.text_y_in_menu,
                font_color=MyGlobals.DOVE,

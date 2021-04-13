@@ -3,7 +3,7 @@ import time
 
 
 def stats_rec():
-    '''
+    """
     Записывает в файл статистику (food, happy, sleep, time,name)
     Если закрыть игру, то сохраняет в файл статистику, если кот не мертв
     Если кот умирает, то очищает файл и флаг isempty изменяется
@@ -12,7 +12,7 @@ def stats_rec():
     остается False
     в таком случае стартовое меню не запускается, а запускается основное
     игровое окно
-    '''
+    """
     n_time = time.time()
     stats = {"time": "", "food": "", "sleep": "", "happy": "",
              "health": "", "name": ""}
@@ -53,9 +53,11 @@ def stats_rec():
     MyGlobals.cat.set_health(int(stats["health"]))
     MyGlobals.cat.set_hunger(
         max(MyGlobals.min_stats, MyGlobals.cat.get_pet_hunger() - food_loss))
-    MyGlobals.cat.set_sleep(max(MyGlobals.min_stats, MyGlobals.cat.get_pet_sleep() - sleep_loss))
+    MyGlobals.cat.set_sleep(
+        max(MyGlobals.min_stats, MyGlobals.cat.get_pet_sleep() - sleep_loss))
     MyGlobals.cat.set_happiness(
-        max(MyGlobals.min_stats, MyGlobals.cat.get_pet_happiness() - sleep_loss))
+        max(MyGlobals.min_stats,
+            MyGlobals.cat.get_pet_happiness() - sleep_loss))
     MyGlobals.cat.set_health(
         max(MyGlobals.min_stats, MyGlobals.cat.get_pet_health() - health_loss))
     MyGlobals.cat.set_name(stats["name"])
