@@ -1,5 +1,5 @@
-import pygame
 from Globals import MyGlobals
+import pygame
 
 # ------Счётчики спрайтов-------------
 bg_counter = 0

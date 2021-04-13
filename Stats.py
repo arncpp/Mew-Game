@@ -14,44 +14,44 @@ def stats_rec():
     игровое окно
     '''
     n_time = time.time()
-    stati = {"time": "", "food": "", "sleep": "", "happy": "",
+    stats = {"time": "", "food": "", "sleep": "", "happy": "",
              "health": "", "name": ""}
 
     try:
-        with open("stats.txt", "r") as stats:
-            for i, line in enumerate(list(stats.readlines())):
-                stati[list(stati.keys())[i]] = line
-            stats.close()
+        with open("stats.txt", "r") as stats_file:
+            for i, line in enumerate(list(stats_file.readlines())):
+                stats[list(stats.keys())[i]] = line
+            stats_file.close()
     except IOError:
         open("stats.txt", "w").close()
 
-    if stati["time"] == "":
+    if stats["time"] == "":
         MyGlobals.isempty = True
-        stati["time"] = time.time()
-    if stati["food"] == "":
+        stats["time"] = time.time()
+    if stats["food"] == "":
         MyGlobals.isempty = True
-        stati["food"] = "100"
-    if stati["sleep"] == "":
+        stats["food"] = MyGlobals.cat_max_stats
+    if stats["sleep"] == "":
         MyGlobals.isempty = True
-        stati["sleep"] = "100"
-    if stati["happy"] == "":
+        stats["sleep"] = MyGlobals.cat_max_stats
+    if stats["happy"] == "":
         MyGlobals.isempty = True
-        stati["happy"] = "100"
-    if stati["health"] == "":
+        stats["happy"] = MyGlobals.cat_max_stats
+    if stats["health"] == "":
         MyGlobals.isempty = True
-        stati["health"] = "100"
-    if stati["name"] == "":
+        stats["health"] = MyGlobals.cat_max_stats
+    if stats["name"] == "":
         MyGlobals.isempty = True
-        stati["name"] = "NoName"
+        stats["name"] = MyGlobals.default_cat_name
 
-    time_loss = n_time - float(stati["time"])
+    time_loss = n_time - float(stats["time"])
     food_loss = time_loss // 10
     sleep_loss = time_loss // 20
     health_loss = time_loss // 18
-    MyGlobals.cat.set_hunger(int(stati["food"]))
-    MyGlobals.cat.set_sleep(int(stati["sleep"]))
-    MyGlobals.cat.set_happiness(int(stati["happy"]))
-    MyGlobals.cat.set_health(int(stati["health"]))
+    MyGlobals.cat.set_hunger(int(stats["food"]))
+    MyGlobals.cat.set_sleep(int(stats["sleep"]))
+    MyGlobals.cat.set_happiness(int(stats["happy"]))
+    MyGlobals.cat.set_health(int(stats["health"]))
     MyGlobals.cat.set_hunger(
         max(6, MyGlobals.cat.get_pet_hunger() - food_loss))
     MyGlobals.cat.set_sleep(max(6, MyGlobals.cat.get_pet_sleep() - sleep_loss))
@@ -59,4 +59,4 @@ def stats_rec():
         max(6, MyGlobals.cat.get_pet_happiness() - sleep_loss))
     MyGlobals.cat.set_health(
         max(6, MyGlobals.cat.get_pet_health() - health_loss))
-    MyGlobals.cat.set_name(stati["name"])
+    MyGlobals.cat.set_name(stats["name"])

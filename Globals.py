@@ -12,7 +12,7 @@ class MyGlobals(object):
     display = pygame.display.set_mode((display_width, display_height))
 
     # ------------Иконка игры------------------
-    icon = pygame.image.load("images\icon.png")
+    icon = pygame.image.load("images/icon.png")
 
     # --------------Питомец-------------------
     cat_width = 230
@@ -21,17 +21,22 @@ class MyGlobals(object):
     cat_x = display_width // 8
     cat_y = display_height - cat_height
     title = "Mew Game"
+    cat_hunger_loss = 0.001
+    cat_sleep_loss = 0.01
+    cat_health_loss = 0.003
+    cat_max_stats = "100"
+    default_cat_name = "Mew"
 
     # -----------Флаг isempty------------------
     isempty = False
 
     # ----------Загрузка спрайтов кнопок-------
-    but_ac = pygame.image.load("images\\button\\but_inact.png")
-    but_in = pygame.image.load("images\\button\\but_in.png")
-    but_cl = pygame.image.load("images\\button\\but_act.png")
-    gameover = pygame.image.load("images\\button\\button_start.png")
-    menu = pygame.image.load("images\\button\\but_menu.png")
-    menu_button = pygame.image.load("images\\button\\button_menu_lofi.png")
+    but_ac = pygame.image.load("images/button/but_inact.png")
+    but_in = pygame.image.load("images/button/but_in.png")
+    but_cl = pygame.image.load("images/button/but_act.png")
+    gameover = pygame.image.load("images/button/button_start.png")
+    menu = pygame.image.load("images/button/but_menu.png")
+    menu_button = pygame.image.load("images/button/button_menu_lofi.png")
 
     # ---------Константы для кнопок-------------
     text_indent_btn_x = 20
@@ -43,27 +48,25 @@ class MyGlobals(object):
     btn_y_indent = 50
 
     # ----Загрузка спрайтов для анимации кота---
-    cat_sit = [pygame.image.load(
-        "images\\cat_sprites\\sit_col\\" + "sit_" + str(i) + ".png") for i in
-        range(1, 9)]
-    death = [
-        pygame.image.load("images\\cat_sprites\\dead\\dead_" + str(i) + ".png")
-        for i in range(1, 9)]
+    cat_sit = [pygame.image.load("images/cat_sprites/sit_col/" + "sit_" +
+                                 str(i) + ".png") for i in range(1, 9)]
+    death = [pygame.image.load("images/cat_sprites/dead/dead_" + str(i) +
+                               ".png") for i in range(1, 9)]
 
     # -----Загрузка спрайтов для анимации фона---
-    bg_lofi = [pygame.image.load("images\\bg\\lofi_bg\\"
-                                 + str(i) + ".png") for i in range(1, 61)]
-    bg_menu = [pygame.image.load("images\\bg\\menu_bg\\" + str(i) + ".png") for
-               i in range(1, 89)]
+    bg_lofi = [pygame.image.load("images/bg/lofi_bg/" + str(i) +
+                                 ".png") for i in range(1, 61)]
+    bg_menu = [pygame.image.load("images/bg/menu_bg/" + str(i) +
+                                 ".png") for i in range(1, 89)]
 
     # ----------Загрузка музыки и звуков----------
     bg_music = [os.path.join(d, f) for d, dirs, m_files in
-                os.walk("sounds\\music") for f in m_files]
-    mew_1 = pygame.mixer.Sound("sounds\\cat\\mew_1.wav")
-    mew_2 = pygame.mixer.Sound("sounds\\cat\\mew_2.wav")
-    mrr = pygame.mixer.Sound("sounds\\cat\\mrr.wav")
-    eat = pygame.mixer.Sound("sounds\\cat\\eat.mp3")
-    menu_track = "sounds\\Nuver Its getting late.mp3"
+                os.walk("sounds/music") for f in m_files]
+    mew_1 = pygame.mixer.Sound("sounds/cat/mew_1.wav")
+    mew_2 = pygame.mixer.Sound("sounds/cat/mew_2.wav")
+    mrr = pygame.mixer.Sound("sounds/cat/mrr.wav")
+    eat = pygame.mixer.Sound("sounds/cat/eat.mp3")
+    menu_track = "sounds/Nuver Its getting late.mp3"
 
     # -----------Количество треков-----------------
     tracks_number = len(bg_music)
@@ -118,3 +121,4 @@ class MyGlobals(object):
     cat_deceleration = 11
     cat_dead_indent_x = -5
     cat_dead_indent_y = 40
+    gameover_pos = (80, 80)

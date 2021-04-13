@@ -1,6 +1,6 @@
-from Globals import MyGlobals
 from Func import eat_sound, mrr, mew_1, mew_2, next_track, print_text, \
     prev_track
+from Globals import MyGlobals
 import pygame
 
 
@@ -147,8 +147,8 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет
         функцию next_track (переходит на след. трек)
         '''
-        return Button(MyGlobals.btn_x_in_game, 12.5 * MyGlobals.btn_y_in_game, MyGlobals.btn_width,
-                      MyGlobals.btn_height,
+        return Button(MyGlobals.btn_x_in_game, 12.5 * MyGlobals.btn_y_in_game,
+                      MyGlobals.btn_width, MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       prev_track, mrr)

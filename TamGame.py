@@ -60,9 +60,9 @@ def run_game():
                 prev_track()
         if not MyGlobals.cat.pet_death:
             draw_bg_lofi()
-            MyGlobals.cat.hunger_loss(0.001)
-            MyGlobals.cat.sleep_loss(0.01)
-            MyGlobals.cat.health_loss(0.003)
+            MyGlobals.cat.hunger_loss(MyGlobals.cat_hunger_loss)
+            MyGlobals.cat.sleep_loss(MyGlobals.cat_sleep_loss)
+            MyGlobals.cat.health_loss(MyGlobals.cat_health_loss)
             draw_pet_stats()
             draw_cat_sit()
             button_food.draw("Food")
@@ -77,7 +77,7 @@ def run_game():
         else:
             draw_bg_lofi()
             draw_cat_dead()
-            MyGlobals.display.blit(MyGlobals.gameover, (80, 80))
+            MyGlobals.display.blit(MyGlobals.gameover, MyGlobals.gameover_pos)
             pet_died()
         pygame.display.update()
         fps.tick(60)
