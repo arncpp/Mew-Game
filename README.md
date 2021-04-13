@@ -15,23 +15,22 @@
 </blockquote>
 <h1 id="-arncpp">Гайд по запуску Тамагочи от arncpp</h1>
 <details>
-<summary><h3 id="-python-pygame-"><strong>Первый этап: установка python и pygame</strong></h3>
+<summary><strong>Первый этап: установка python и pygame.
 <h5 id="-python3-pygame-"><em>Если у вас уже установлен python3 и вы можете самостоятельно установить библиотеку pygame — пропустите этот этап</em></h5></summary>
 <p><strong>1. Скачайте python3 с официального <a href="https://www.python.org/downloads/">сайта</a> и установите его.</strong>
 <strong>2. Во время установки <em>обязательно</em> поставьте галочку &quot;Add Python 3.x to PATH&quot;.</strong>
 <img src="https://python-scripts.com/wp-content/uploads/2018/06/win-install-dialog.40e3ded144b0.png" alt="add path screenshot"></p>
-<p><strong>3. Когда установка закончится запустите консоль нажать комбинацию Win + R и в открывшемся окне вписать <p><code>cmd</code></p>
-<p><strong>4. Попробуйте выполнить команду <p><code>pip</code></p>
-если вы все сделали правильно должен вылезти список команд.
-<p><strong>5. Установите pygame используя команду <p><code>pip install pygame</code></p>
+<p><strong>3. Когда установка закончится запустите консоль нажать комбинацию Win + R.
+<p><strong>4. Установите pygame.
 </details>
 <h3 id="-"><strong>Второй этап: скачивание и запуска проекта.</strong></h3>
-<p><strong>1. Скачайте проект с github любым удобным для вас способом (gitclone или по <a href="https://github.com/arncpp/Tamagotchi-Game.git">ссылке</a>).</strong></p>
-<p><strong>2. В консоли перейдите в папку с игрой при помощи команды <p><code>cd</code></p>
-<p><strong>3. Запустите игру при помощи команды <p><code>python TamGame.py</code></p>
+<p><strong>1. Скачайте проект с github любым удобным для вас способом.</strong></p>
+<p><strong>2. В консоли перейдите в папку. 
+<p><strong>3. Запустите игру.
 <h3 id="-4-"><strong>4. Наслаждайтесь!</strong></h3>
 <details>
 <summary>Команды, которые нужно выполнить, для запуска через консоль:</summary>
+<p><code>gitclone https://github.com/arncpp/Tamagotchi-Game.git</code></p>
 <p><code>pip install pygame</code></p>
 <p><code>cd</code></p>
 <p><code>python TamGame.py</code></p></details>
