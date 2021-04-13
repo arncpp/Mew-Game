@@ -27,7 +27,7 @@
 <p><strong>1. Скачайте проект с github любым удобным для вас способом.</strong></p>
 <p><strong>2. В консоли перейдите в папку. 
 <p><strong>3. Запустите игру.
-<h3 id="-4-"><strong>4. Наслаждайтесь!</strong></h3>
+<p><strong>4. Наслаждайтесь!
 <details>
 <summary>Команды, которые нужно выполнить, для запуска через консоль:</summary>
 <p><code>gitclone https://github.com/arncpp/Tamagotchi-Game.git</code></p>
@@ -38,10 +38,10 @@
 <p><strong>1. Создайте пустой проект на PyCharm: (<em>File -&gt; New Project</em>)</strong></p>
 <p><strong>2. Установите библиотеку PyGame: (<em>File -&gt; Settings -&gt; Project:&quot;название&quot; -&gt; Python Interpreter -&gt; Install -&gt; pygame</em>)</strong></p>
 <p><strong>3. Зайдите в убунту-консоль, перейдите в папку с проектом (с помощью cd)</strong></p>
-<p><strong>4. Напишите <p><code>git clone https://github.com/arncpp/Tamagotchi-Game.git</code></p>
+<p><strong>4. Скачайте проект с github любым удобным для вас способом.</code></p>
 <p><strong>5. Подождите, пока скачается. После скачивания откройте проект в PyCharm.</strong></p>
 <p><strong>6. Запустите файл TamGame.py</strong></p>
-<h3 id="-7-"><strong>7. Играйте с котёнком, слушайте прекрасную музыку и радуйтесь жизни!</strong></h3>
+<p><strong>7. Играйте с котёнком, слушайте прекрасную музыку и радуйтесь жизни!</strong></p>
 <h1 id="-">Скрины из игры</h1>
 <p><img src="screenshots/menu.PNG" alt="Menu" title="Игровое меню">
 <img src="screenshots/s2.PNG" alt="Game" title="Игровой процесс">
