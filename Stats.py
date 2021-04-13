@@ -44,18 +44,18 @@ def stats_rec():
         stats["name"] = MyGlobals.default_cat_name
 
     time_loss = n_time - float(stats["time"])
-    food_loss = time_loss // 10
-    sleep_loss = time_loss // 20
-    health_loss = time_loss // 18
+    food_loss = time_loss // MyGlobals.stats_loss_divider
+    sleep_loss = time_loss // MyGlobals.stats_loss_divider * 2
+    health_loss = time_loss // MyGlobals.stats_loss_divider * 1.8
     MyGlobals.cat.set_hunger(int(stats["food"]))
     MyGlobals.cat.set_sleep(int(stats["sleep"]))
     MyGlobals.cat.set_happiness(int(stats["happy"]))
     MyGlobals.cat.set_health(int(stats["health"]))
     MyGlobals.cat.set_hunger(
-        max(6, MyGlobals.cat.get_pet_hunger() - food_loss))
-    MyGlobals.cat.set_sleep(max(6, MyGlobals.cat.get_pet_sleep() - sleep_loss))
+        max(MyGlobals.min_stats, MyGlobals.cat.get_pet_hunger() - food_loss))
+    MyGlobals.cat.set_sleep(max(MyGlobals.min_stats, MyGlobals.cat.get_pet_sleep() - sleep_loss))
     MyGlobals.cat.set_happiness(
-        max(6, MyGlobals.cat.get_pet_happiness() - sleep_loss))
+        max(MyGlobals.min_stats, MyGlobals.cat.get_pet_happiness() - sleep_loss))
     MyGlobals.cat.set_health(
-        max(6, MyGlobals.cat.get_pet_health() - health_loss))
+        max(MyGlobals.min_stats, MyGlobals.cat.get_pet_health() - health_loss))
     MyGlobals.cat.set_name(stats["name"])

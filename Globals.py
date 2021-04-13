@@ -10,7 +10,7 @@ class MyGlobals(object):
     display_width = 950
     display_height = 586
     display = pygame.display.set_mode((display_width, display_height))
-
+    display_fps = 60
     # ------------Иконка игры------------------
     icon = pygame.image.load("images/icon.png")
 
@@ -26,6 +26,8 @@ class MyGlobals(object):
     cat_health_loss = 0.003
     cat_max_stats = "100"
     default_cat_name = "Mew"
+    min_stats = 6
+    stats_loss_divider = 10
 
     # -----------Флаг isempty------------------
     isempty = False
@@ -46,6 +48,14 @@ class MyGlobals(object):
     btn_x_in_game = 10
     btn_y_in_game = 40
     btn_y_indent = 50
+    button_start_x = 20
+    button_start_y = 80
+    btn_health_inscription = "Heal"
+    btn_sleep_inscription = "Sleep"
+    btn_food_inscription = "Food"
+    btn_next_inscription = "Next"
+    btn_prev_inscription = "Prev"
+    btn_start_inscription = "Start"
 
     # ----Загрузка спрайтов для анимации кота---
     cat_sit = [pygame.image.load("images/cat_sprites/sit_col/" + "sit_" +
@@ -114,6 +124,8 @@ class MyGlobals(object):
     input_text_bg = (52, 14, 18)
     input_text_fd = (117, 65, 71)
     input_text_size = 20
+    music_font_size = 10
+    music_font_pos = 545
 
     # -----------Конфигурация анимации--------------
     bg_lofi_deceleration = 4

@@ -65,26 +65,29 @@ def run_game():
             MyGlobals.cat.health_loss(MyGlobals.cat_health_loss)
             draw_pet_stats()
             draw_cat_sit()
-            button_food.draw("Food")
-            button_sleep.draw("Sleep")
-            button_health.draw("Heal")
-            print_text(str(
-                MyGlobals.bg_music[MyGlobals.current_track][
-                MyGlobals.bg_music[MyGlobals.current_track].rfind(
-                    "\\") + 1:-4]), 10, 545)
-            button_next.draw("Next")
-            button_prev.draw("Prev")
+            button_food.draw(MyGlobals.btn_food_inscription)
+            button_sleep.draw(MyGlobals.btn_sleep_inscription)
+            button_health.draw(MyGlobals.btn_health_inscription)
+            print_text(str(MyGlobals.bg_music[MyGlobals.current_track]
+                           [MyGlobals.bg_music
+                            [MyGlobals.current_track].rfind("\\") +
+                            1:-4]), MyGlobals.music_font_size,
+                       MyGlobals.music_font_pos)
+            button_next.draw(MyGlobals.btn_next_inscription)
+            button_prev.draw(MyGlobals.btn_prev_inscription)
         else:
             draw_bg_lofi()
             draw_cat_dead()
             MyGlobals.display.blit(MyGlobals.gameover, MyGlobals.gameover_pos)
             pet_died()
         pygame.display.update()
-        fps.tick(60)
+        fps.tick(MyGlobals.display_fps)
 
 
 # ----------Кнопка старта---------------
-but_st = Button(20, 80, 100, 38, MyGlobals.menu_button, MyGlobals.but_ac,
+but_st = Button(MyGlobals.button_start_x, MyGlobals.button_start_y,
+                MyGlobals.btn_width, MyGlobals.btn_height,
+                MyGlobals.menu_button, MyGlobals.but_ac,
                 MyGlobals.but_cl, run_game)
 
 
@@ -129,7 +132,7 @@ def show_menu():
                        font_color=MyGlobals.input_text_fd,
                        font_size=MyGlobals.input_text_size)
             print_menu_text()
-            but_st.draw("Start")
+            but_st.draw(MyGlobals.btn_start_inscription)
             pygame.display.update()
     else:
         run_game()
