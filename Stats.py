@@ -21,8 +21,7 @@ def stats_rec():
         with open("stats.txt", "r") as stats_file:
             for i, line in enumerate(list(stats_file.readlines())):
                 stats[list(stats.keys())[i]] = line
-            stats_file.close()
-    except IOError:
+    except Exception:
         open("stats.txt", "w").close()
 
     if stats["time"] == "":
