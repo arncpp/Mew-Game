@@ -14,8 +14,8 @@
 </blockquote>
 </blockquote>
 <h1 id="-arncpp">Гайд по запуску Тамагочи от arncpp</h1>
-<details>
 <h2 id="-pycharm">Как запустить игру через консоль</h2>
+<details>
 <summary><strong>Первый этап: установка python и pygame.
 <h5 id="-python3-pygame-"><em>Если у вас уже установлен python3 и вы можете самостоятельно установить библиотеку pygame — пропустите этот этап</em></h5></summary>
 <p><strong>1. Скачайте python3 с официального <a href="https://www.python.org/downloads/">сайта</a> и установите его.</strong>
