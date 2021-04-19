@@ -6,11 +6,14 @@ pygame.mixer.init()
 
 
 class MyGlobals(object):
-    # --------------Дисплей-------------------
+    # -------------Дисплей и основное----------
     display_width = 950
     display_height = 586
     display = pygame.display.set_mode((display_width, display_height))
     display_fps = 60
+    font_type_text = "images/pixelsh.ttf"
+    stats_file_name = "stats.txt"
+    default_pos_pic = (0, 0)
     # ------------Иконка игры------------------
     icon = pygame.image.load("images/icon.png")
 
@@ -50,6 +53,11 @@ class MyGlobals(object):
     btn_y_indent = 50
     button_start_x = 20
     button_start_y = 80
+    button_replenishment = 5
+    btn_mult_y_in_game = 12.5
+    btn_mult_x_in_game = 27
+    btn_healt_mult_y = 2
+    button_click_left = 1
     btn_health_inscription = "Heal"
     btn_sleep_inscription = "Sleep"
     btn_food_inscription = "Food"
@@ -126,6 +134,12 @@ class MyGlobals(object):
     input_text_size = 20
     music_font_size = 10
     music_font_pos = 545
+    music_text_crop_l = 1
+    music_text_crop_r = -4
+    input_text_crop = -1
+    text_mult_y_died = 10
+    text_mult_y_died_stats = 2
+    text_mult_y_died_stats_3 = 3
 
     # -----------Конфигурация анимации--------------
     bg_lofi_deceleration = 4
@@ -134,3 +148,10 @@ class MyGlobals(object):
     cat_dead_indent_x = -5
     cat_dead_indent_y = 40
     gameover_pos = (80, 80)
+
+
+
+
+
+
+

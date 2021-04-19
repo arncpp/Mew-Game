@@ -1,13 +1,14 @@
+import pygame
+import time
 from Button import Button, ButtonFactory
 from Func import draw_bg_lofi, draw_bg_menu, draw_cat_sit, draw_cat_dead, \
     draw_pet_stats, menu_mus, next_track, pet_died, play_music, \
     print_menu_text, print_text, prev_track
 from Globals import MyGlobals
-import pygame
 from Stats import stats_rec
-import time
 
 pygame.init()
+
 # ---------Настройки окна----------------
 pygame.display.set_caption(MyGlobals.title)
 pygame.display.set_icon(MyGlobals.icon)
@@ -31,24 +32,26 @@ def run_game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if MyGlobals.cat.pet_death is True:
-                    stats_rec.stats = open("stats.txt", "w")
+                    with open(MyGlobals.stats_file_name, "w") \
+                            as stats_rec.stats:
+                        pass
                 else:
-                    stats = open("stats.txt", "w")
-                    stats.writelines(str(time.time()) + "\n")
-                    stats.writelines(
-                        str(int(MyGlobals.cat.get_pet_hunger())) + "\n")
-                    stats.writelines(
-                        str(int(MyGlobals.cat.get_pet_sleep())) + "\n")
-                    stats.writelines(
-                        str(int(MyGlobals.cat.get_pet_happiness())) + "\n")
-                    stats.writelines(
-                        str(int(MyGlobals.cat.get_pet_health())) + "\n")
-                    stats.writelines(MyGlobals.cat.get_pet_name())
+                    with open(MyGlobals.stats_file_name, "w") as stats:
+                        stats.writelines(str(time.time()) + "\n")
+                        stats.writelines(
+                            str(int(MyGlobals.cat.get_pet_hunger())) + "\n")
+                        stats.writelines(
+                            str(int(MyGlobals.cat.get_pet_sleep())) + "\n")
+                        stats.writelines(
+                            str(int(MyGlobals.cat.get_pet_happiness())) + "\n")
+                        stats.writelines(
+                            str(int(MyGlobals.cat.get_pet_health())) + "\n")
+                        stats.writelines(MyGlobals.cat.get_pet_name())
                 pygame.quit()
                 quit()
             elif event.type == pygame.MOUSEBUTTONDOWN and \
                     MyGlobals.cat.pet_death is not True:
-                if event.button == 1:
+                if event.button == MyGlobals.button_click_left:
                     button_food.action_button_click()
                     button_sleep.action_button_click()
                     button_health.action_button_click()
@@ -71,8 +74,9 @@ def run_game():
             print_text(str(MyGlobals.bg_music[MyGlobals.current_track]
                            [MyGlobals.bg_music
                             [MyGlobals.current_track].rfind("\\") +
-                            1:-4]), MyGlobals.music_font_size,
-                       MyGlobals.music_font_pos)
+                    MyGlobals.music_text_crop_l:MyGlobals.music_text_crop_r]),
+                    MyGlobals.music_font_size,
+                    MyGlobals.music_font_pos)
             button_next.draw(MyGlobals.btn_next_inscription)
             button_prev.draw(MyGlobals.btn_prev_inscription)
         else:
@@ -105,7 +109,7 @@ def show_menu():
                     pygame.quit()
                     quit()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == 1:
+                    if event.button == MyGlobals.button_click_left:
                         but_st.action_button_click()
                 elif event.type == pygame.KEYDOWN:
                     if need_input:
@@ -116,7 +120,7 @@ def show_menu():
                                 MyGlobals.cat.get_pet_name())
                             input_text = ""
                         elif event.key == pygame.K_BACKSPACE:
-                            input_text = input_text[:-1]
+                            input_text = input_text[:MyGlobals.input_text_crop]
                         else:
                             input_text += event.unicode
                     elif event.key == pygame.K_SPACE:

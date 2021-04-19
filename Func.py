@@ -9,7 +9,7 @@ bg_menu_counter = 0
 
 
 def print_text(message, x, y, font_color=MyGlobals.BlACK,
-               font_type="images/pixelsh.ttf",
+               font_type=MyGlobals.font_type_text,
                font_size=MyGlobals.main_font_size):
     """
     Функция печати текста на экране
@@ -34,7 +34,7 @@ def draw_bg_lofi():
         bg_counter = 0
     MyGlobals.display.blit(
         MyGlobals.bg_lofi[bg_counter // MyGlobals.bg_lofi_deceleration],
-        (0, 0))
+        MyGlobals.default_pos_pic)
     bg_counter += 1
 
 
@@ -43,12 +43,12 @@ def draw_bg_menu():
     Отрисовка анимации заднего фона в меню
     """
     global bg_menu_counter
-    if bg_menu_counter == len(
-            MyGlobals.bg_menu) * MyGlobals.bg_menu_deceleration:
+    if bg_menu_counter == len(MyGlobals.bg_menu) * \
+            MyGlobals.bg_menu_deceleration:
         bg_menu_counter = 0
     MyGlobals.display.blit(
         MyGlobals.bg_menu[bg_menu_counter // MyGlobals.bg_menu_deceleration],
-        (0, 0))
+        MyGlobals.default_pos_pic)
     bg_menu_counter += 1
 
 
@@ -155,13 +155,14 @@ def pet_died():
     """
     print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.cat_name_x_gameover - len(
-                   MyGlobals.cat.get_pet_name()) * 10,
+                   MyGlobals.cat.get_pet_name()) * MyGlobals.text_mult_y_died,
                MyGlobals.cat_name_y_gameover,
                font_color=MyGlobals.EGGPLANT,
                font_size=MyGlobals.font_size_gameover)
     print_text(MyGlobals.cat.get_pet_name(),
                MyGlobals.text_x_indent + MyGlobals.cat_name_x_gameover
-               - len(MyGlobals.cat.get_pet_name()) * 10,
+               - len(MyGlobals.cat.get_pet_name()) *
+               MyGlobals.text_mult_y_died,
                MyGlobals.cat_name_y_gameover,
                font_color=MyGlobals.PERIWINKLE,
                font_size=MyGlobals.font_size_gameover)
@@ -179,13 +180,16 @@ def pet_died():
     print_text(MyGlobals.cat.death_reason,
                MyGlobals.text_x_gameover_death_reason,
                MyGlobals.cat_name_y_gameover +
-               2 * MyGlobals.cat_name_y_indent_gameover,
+               MyGlobals.text_mult_y_died_stats *
+               MyGlobals.cat_name_y_indent_gameover,
                font_color=MyGlobals.EGGPLANT,
                font_size=MyGlobals.font_size_gameover)
     print_text(MyGlobals.cat.death_reason,
-               MyGlobals.text_x_gameover_death_reason + MyGlobals.text_x_indent,
+               MyGlobals.text_x_gameover_death_reason +
+               MyGlobals.text_x_indent,
                MyGlobals.cat_name_y_gameover +
-               2 * MyGlobals.cat_name_y_indent_gameover,
+               MyGlobals.text_mult_y_died_stats *
+               MyGlobals.cat_name_y_indent_gameover,
                font_color=MyGlobals.PERIWINKLE,
                font_size=MyGlobals.font_size_gameover)
     print_text("Close the game to restart", MyGlobals.text_x_gameover_close,
@@ -220,17 +224,19 @@ def draw_pet_stats():
                font_color=MyGlobals.DARK_PURPLE)
     print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
                MyGlobals.text_x_stats,
-               MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent)
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 * MyGlobals.text_y_indent)
     print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
-               MyGlobals.text_y_stats + 3 * MyGlobals.text_y_indent,
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 * MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)
     print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
                MyGlobals.text_x_stats,
-               MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent)
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats *
+               MyGlobals.text_y_indent)
     print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
-               MyGlobals.text_y_stats + 2 * MyGlobals.text_y_indent,
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats *
+               MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)
 
 

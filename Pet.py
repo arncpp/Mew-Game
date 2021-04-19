@@ -1,3 +1,4 @@
+from PetGlobals import Globals
 class Pet:
     def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger,
                  pet_max_stats, pet_min_stats):
@@ -13,12 +14,12 @@ class Pet:
         self._pet_happiness = pet_happiness
         self._pet_hunger = pet_hunger
         self.pet_death = False
-        self.death_reason = ''
-        self._pet_name = ''
+        self.death_reason = Globals.default_name_and_reason
+        self._pet_name = Globals.default_name_and_reason
         self.pet_max_stats = pet_max_stats
         self.pet_min_stats = pet_min_stats
-        self.pet_hap_loss = 0.002
-        self.pet_hap_repl = 10
+        self.pet_hap_loss = Globals.pet_hap_loss_num
+        self.pet_hap_repl = Globals.pet_hap_repl_num
 
     def pet_hapiness_loss(self, pet_hap_loss):
         """
@@ -28,7 +29,7 @@ class Pet:
         self._pet_happiness -= pet_hap_loss
         if self._pet_happiness <= self.pet_min_stats:
             self.pet_death = True
-            self.death_reason = "Sadness"
+            self.death_reason = Globals.pet_sad_reason
 
     def pet_hapiness_replenishment(self, hap_replenishment):
         """
@@ -49,7 +50,7 @@ class Pet:
         if self._pet_hunger <= self.pet_min_stats or \
                 self._pet_hunger >= self.pet_max_stats:
             self.pet_death = True
-            self.death_reason = 'Food'
+            self.death_reason = Globals.pet_food_reason
 
     def hunger_replenishment(self, hung_replenishment):
         """
@@ -60,7 +61,7 @@ class Pet:
         self.pet_hapiness_replenishment(self.pet_hap_repl)
         if self._pet_hunger >= self.pet_max_stats:
             self.pet_death = True
-            self.death_reason = 'Food'
+            self.death_reason = Globals.pet_food_reason
 
     def health_loss(self, heal_loss):
         """
@@ -68,10 +69,10 @@ class Pet:
         :param heal_loss: то, что вычитается из pet_health
         """
         self._pet_health -= heal_loss
-        self.pet_hapiness_loss(self.pet_hap_loss // 2)
+        self.pet_hapiness_loss(Globals.pet_hap_loss_in_health)
         if self._pet_health <= self.pet_min_stats:
             self.pet_death = True
-            self.death_reason = 'Health'
+            self.death_reason = Globals.pet_health_reason
 
     def health_replenishment(self, heal_replenishment):
         """
@@ -79,10 +80,10 @@ class Pet:
         :param heal_replenishment: то, что прибавляется к pet_health
         """
         self._pet_health += heal_replenishment
-        self.pet_hapiness_replenishment(self.pet_hap_repl / 5)
+        self.pet_hapiness_replenishment(Globals.pet_hap_repl_in_health)
         if self._pet_health >= self.pet_max_stats:
             self._pet_health = self.pet_max_stats
-            self.pet_hapiness_replenishment(self.pet_hap_repl / -5)
+            self.pet_hapiness_replenishment(-Globals.pet_hap_repl_in_health)
 
     def sleep_loss(self, sl_loss):
         """
@@ -90,11 +91,11 @@ class Pet:
         :param sl_loss: то, что вычитается из pet_sleep
         """
         self._pet_sleep -= sl_loss
-        self.pet_hapiness_loss(self.pet_hap_loss * 2)
+        self.pet_hapiness_loss(Globals.pet_hap_loss_in_sleep)
         if self._pet_sleep <= self.pet_min_stats or \
                 self._pet_sleep >= self.pet_max_stats:
             self.pet_death = True
-            self.death_reason = 'Sleep'
+            self.death_reason = Globals.pet_sleep_reason
 
     def sleep_replenishment(self, sl_replenishment):
         """

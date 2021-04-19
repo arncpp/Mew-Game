@@ -72,7 +72,8 @@ class Button:
         click = pygame.mouse.get_pressed(3)
         if self.position_x < mouse[0] < self.position_x + self.width and \
                 self.position_y < mouse[1] < self.position_y + self.height:
-            if click[0] == 1 and self.action is not None:
+            if click[0] == MyGlobals.button_click_left and \
+                    self.action is not None:
                 if self.num is not None:
                     self.action(self.num)
                 else:
@@ -95,7 +96,8 @@ class ButtonFactory:
                       MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
-                      MyGlobals.cat.hunger_replenishment, eat_sound, 5)
+                      MyGlobals.cat.hunger_replenishment, eat_sound,
+                      MyGlobals.button_replenishment)
 
     def button_sleep(self):
         """
@@ -109,7 +111,8 @@ class ButtonFactory:
                       MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
-                      MyGlobals.cat.sleep_replenishment, mew_1, 5)
+                      MyGlobals.cat.sleep_replenishment, mew_1,
+                      MyGlobals.button_replenishment)
 
     def button_health(self):
         """
@@ -119,12 +122,14 @@ class ButtonFactory:
         health_replenishment(прибавляет 5 единиц здоровья)
         """
         return Button(MyGlobals.btn_x_in_game,
-                      MyGlobals.btn_y_in_game + 2 * MyGlobals.btn_y_indent,
+                      MyGlobals.btn_y_in_game + MyGlobals.btn_healt_mult_y *
+                      MyGlobals.btn_y_indent,
                       MyGlobals.btn_width,
                       MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
-                      MyGlobals.cat.health_replenishment, mew_2, 5)
+                      MyGlobals.cat.health_replenishment, mew_2,
+                      MyGlobals.button_replenishment)
 
     def button_next(self):
         """
@@ -133,8 +138,9 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет
         функцию next_track (переходит на след. трек)
         """
-        return Button(27 * MyGlobals.btn_x_in_game,
-                      12.5 * MyGlobals.btn_y_in_game, MyGlobals.btn_width,
+        return Button(MyGlobals.btn_mult_x_in_game * MyGlobals.btn_x_in_game,
+                      MyGlobals.btn_mult_y_in_game * MyGlobals.btn_y_in_game,
+                      MyGlobals.btn_width,
                       MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
@@ -147,7 +153,8 @@ class ButtonFactory:
         :return: возвращает кнопку, которая выполняет
         функцию next_track (переходит на след. трек)
         """
-        return Button(MyGlobals.btn_x_in_game, 12.5 * MyGlobals.btn_y_in_game,
+        return Button(MyGlobals.btn_x_in_game, MyGlobals.btn_mult_y_in_game *
+                      MyGlobals.btn_y_in_game,
                       MyGlobals.btn_width, MyGlobals.btn_height,
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
