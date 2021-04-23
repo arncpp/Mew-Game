@@ -74,9 +74,9 @@ def run_game():
             print_text(str(MyGlobals.bg_music[MyGlobals.current_track]
                            [MyGlobals.bg_music
                             [MyGlobals.current_track].rfind("\\") +
-                    MyGlobals.music_text_crop_l:MyGlobals.music_text_crop_r]),
-                    MyGlobals.music_font_size,
-                    MyGlobals.music_font_pos)
+                            MyGlobals.music_text_crop_l:MyGlobals.music_text_crop_r]),
+                       MyGlobals.music_font_size,
+                       MyGlobals.music_font_pos)
             button_next.draw(MyGlobals.btn_next_inscription)
             button_prev.draw(MyGlobals.btn_prev_inscription)
         else:

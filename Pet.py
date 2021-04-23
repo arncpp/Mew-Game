@@ -1,4 +1,6 @@
 from PetGlobals import Globals
+
+
 class Pet:
     def __init__(self, pet_health, pet_sleep, pet_happiness, pet_hunger,
                  pet_max_stats, pet_min_stats):
