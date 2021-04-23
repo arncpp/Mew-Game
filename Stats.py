@@ -1,5 +1,6 @@
-from Globals import MyGlobals
 import time
+
+from Globals import MyGlobals
 
 
 def stats_rec():

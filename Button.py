@@ -1,7 +1,8 @@
+import pygame
+
 from Func import eat_sound, mrr, mew_1, mew_2, next_track, print_text, \
     prev_track
 from Globals import MyGlobals
-import pygame
 
 
 class Button:

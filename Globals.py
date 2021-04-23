@@ -1,6 +1,7 @@
-import pygame
-from Pet import Pet
 import os
+import pygame
+
+from Pet import Pet
 
 pygame.mixer.init()
 

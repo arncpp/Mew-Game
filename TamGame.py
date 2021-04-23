@@ -1,7 +1,8 @@
 import pygame
+
 from Func import draw_bg_menu, menu_mus, print_menu_text, print_text
 from Globals import MyGlobals
-from Run_game import run_game, but_st, event_in_menu
+from Run_game import but_st, event_in_menu, run_game
 from Stats import stats_rec
 
 pygame.init()
