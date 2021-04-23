@@ -108,9 +108,9 @@ def show_menu():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == MyGlobals.button_click_left:
-                        but_st.action_button_click()
+                elif event.type == pygame.MOUSEBUTTONDOWN and \
+                        event.button == MyGlobals.button_click_left:
+                    but_st.action_button_click()
                 elif event.type == pygame.KEYDOWN:
                     if need_input:
                         if event.key == pygame.K_TAB:

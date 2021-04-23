@@ -44,7 +44,7 @@ class Button:
 
         if self.position_y < mouse[1] < self.position_y + self.height \
                 and self.position_x < mouse[0] < self.position_x + self.width:
-            if click[0] == 1 and self.action != None:
+            if click[0] == 1 and self.action is not None:
                 MyGlobals.display.blit(self.click_im,
                                        (self.position_x, self.position_y))
                 print_text(message,
