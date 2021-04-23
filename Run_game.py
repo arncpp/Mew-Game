@@ -82,6 +82,12 @@ but_st = Button(MyGlobals.button_start_x, MyGlobals.button_start_y,
 
 # --------Функция событий в меню--------
 def event_in_menu():
+    """
+    Функция, которая регистрирует события пользователя, происходящие в меню.
+    При нажатии пробела вводится текст, при нажатии кнопки TAB он записывается
+    в файл. При нажатии кнопки Start начинается игра. При нажатии на крестик
+    игра закрывается.
+    """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
