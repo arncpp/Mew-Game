@@ -45,9 +45,10 @@ def stats_rec():
 
     time_loss = n_time - float(stats[MyGlobals.stat_time])
     food_loss = time_loss // MyGlobals.stats_loss_divider
-    sleep_loss = time_loss // MyGlobals.stats_loss_divider * \
-                 MyGlobals.text_mult_y_died_stats
-    health_loss = time_loss // MyGlobals.stats_loss_divider * 1.8
+    sleep_loss = (time_loss // MyGlobals.stats_loss_divider *
+                  MyGlobals.sleep_loss_mult)
+    health_loss = (time_loss // MyGlobals.stats_loss_divider *
+                   MyGlobals.health_loss_mult)
     MyGlobals.cat.set_hunger(int(stats[MyGlobals.stat_food]))
     MyGlobals.cat.set_sleep(int(stats[MyGlobals.stat_sleep]))
     MyGlobals.cat.set_happiness(int(stats[MyGlobals.stat_happy]))

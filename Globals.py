@@ -139,6 +139,8 @@ class MyGlobals(object):
     text_mult_y_died = 10
     text_mult_y_died_stats = 2
     text_mult_y_died_stats_3 = 3
+    sleep_loss_mult = 2
+    health_loss_mult = 1.8
 
     # -----------Конфигурация анимации--------------
     bg_lofi_deceleration = 4
@@ -147,7 +149,7 @@ class MyGlobals(object):
     cat_dead_indent_x = -5
     cat_dead_indent_y = 40
     gameover_pos = (80, 80)
-    
+
     # -----------Файл со статами---------------------
     stats_file_name = "stats.txt"
     stat_time = "time"
