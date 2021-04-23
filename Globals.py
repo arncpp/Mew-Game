@@ -3,8 +3,6 @@ import pygame
 
 from Pet import Pet
 
-pygame.mixer.init()
-
 
 class MyGlobals(object):
     # -------------Дисплей и основное----------

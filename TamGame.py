@@ -6,6 +6,7 @@ from Run_game import but_st, event_in_menu, run_game
 from Stats import stats_rec
 
 pygame.init()
+pygame.mixer.init()
 
 # ---------Настройки окна----------------
 pygame.display.set_caption(MyGlobals.title)
