@@ -70,7 +70,7 @@ class Button:
         которое было передано в класс кнопки
         """
         mouse = pygame.mouse.get_pos()
-        click = pygame.mouse.get_pressed(3)
+        click = pygame.mouse.get_pressed(MyGlobals.mouse_get_pressed_state)
         if self.position_x < mouse[0] < self.position_x + self.width and \
                 self.position_y < mouse[1] < self.position_y + self.height:
             if click[0] == MyGlobals.button_click_left and \

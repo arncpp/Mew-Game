@@ -23,15 +23,15 @@ def run_game():
                         pass
                 else:
                     with open(MyGlobals.stats_file_name, "w") as stats:
-                        stats.writelines(str(time.time()) + "\n")
+                        stats.writelines(f"{time.time()}\n")
                         stats.writelines(
-                            str(int(MyGlobals.cat.get_pet_hunger())) + "\n")
+                            f"{int(MyGlobals.cat.get_pet_hunger())}\n")
                         stats.writelines(
-                            str(int(MyGlobals.cat.get_pet_sleep())) + "\n")
+                            f"{int(MyGlobals.cat.get_pet_sleep())}\n")
                         stats.writelines(
-                            str(int(MyGlobals.cat.get_pet_happiness())) + "\n")
+                            f"{int(MyGlobals.cat.get_pet_happiness())}\n")
                         stats.writelines(
-                            str(int(MyGlobals.cat.get_pet_health())) + "\n")
+                            f"{int(MyGlobals.cat.get_pet_health())}\n")
                         stats.writelines(MyGlobals.cat.get_pet_name())
                 pygame.quit()
                 quit()

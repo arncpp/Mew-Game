@@ -23,7 +23,8 @@ def stats_rec():
             for i, line in enumerate(list(stats_file.readlines())):
                 stats[list(stats.keys())[i]] = line
     except Exception:
-        open(MyGlobals.stats_file_name, "w").close()
+        with open(MyGlobals.stats_file_name, "w"):
+            pass
 
     if stats[MyGlobals.stat_time] == "":
         MyGlobals.isempty = True

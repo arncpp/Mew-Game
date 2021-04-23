@@ -2,6 +2,7 @@ import pygame
 
 from Globals import MyGlobals
 
+pygame.mixer.init()
 # ------Счётчики спрайтов-------------
 bg_counter = 0
 img_counter = 0
@@ -123,31 +124,35 @@ def mew_1():
     """
     Функция воспроизводит первый тип мяуканья кота в нулевом звуковом канале
     """
-    MyGlobals.channel1.play(MyGlobals.mew_1)
-    MyGlobals.mew_1.set_volume(MyGlobals.sounds_volume)
+    pygame.mixer.Channel(MyGlobals.channel1).play(
+        pygame.mixer.Sound(MyGlobals.mew_1))
+    pygame.mixer.Sound(MyGlobals.mew_1).set_volume(MyGlobals.sounds_volume)
 
 
 def mew_2():
     """
     Функция воспроизводит второй тип мяуканья кота в нулевом звуковом канале
     """
-    MyGlobals.channel1.play(MyGlobals.mew_2)
-    MyGlobals.mew_2.set_volume(MyGlobals.sounds_volume)
+    pygame.mixer.Channel(MyGlobals.channel1).play(
+        pygame.mixer.Sound(MyGlobals.mew_2))
+    pygame.mixer.Sound(MyGlobals.mew_2).set_volume(MyGlobals.sounds_volume)
 
 
 def mrr():
     """
     Функция воспроизводит мурлыканье кота в нулевом звуковом канале
     """
-    MyGlobals.channel1.play(MyGlobals.mrr)
-    MyGlobals.mrr.set_volume(MyGlobals.sounds_volume)
+    pygame.mixer.Channel(MyGlobals.channel1).play(
+        pygame.mixer.Sound(MyGlobals.mrr))
+    pygame.mixer.Sound(MyGlobals.mrr).set_volume(MyGlobals.sounds_volume)
 
 
 def eat_sound():
     '''
     Функция воспроизводит звуки еды кота в нулевом звуковом канале
     '''
-    MyGlobals.channel1.play(MyGlobals.eat)
+    pygame.mixer.Channel(MyGlobals.channel1).play(
+        pygame.mixer.Sound(MyGlobals.eat))
 
 
 def pet_died():
@@ -210,31 +215,32 @@ def draw_pet_stats():
     """
     Отрисовка статистики кота
     """
-    print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
+    print_text(f"Food:  {int(MyGlobals.cat.get_pet_hunger())}",
                MyGlobals.text_x_stats, MyGlobals.text_y_stats)
-    print_text("Food:  " + str(int(MyGlobals.cat.get_pet_hunger())),
+    print_text(f"Food:  {int(MyGlobals.cat.get_pet_hunger())}",
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats,
                font_color=MyGlobals.DARK_PURPLE)
-    print_text("Sleep: " + str(int(MyGlobals.cat.get_pet_sleep())),
+    print_text(f"Sleep: {int(MyGlobals.cat.get_pet_sleep())}",
                MyGlobals.text_x_stats,
                MyGlobals.text_y_stats + MyGlobals.text_y_indent)
-    print_text("Sleep: " + str(int(MyGlobals.cat.get_pet_sleep())),
+    print_text(f"Sleep: {int(MyGlobals.cat.get_pet_sleep())}",
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats + MyGlobals.text_y_indent,
                font_color=MyGlobals.DARK_PURPLE)
-    print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
+    print_text(f"Happy: {int(MyGlobals.cat.get_pet_happiness())}",
                MyGlobals.text_x_stats,
-               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 * MyGlobals.text_y_indent)
-    print_text("Happy: " + str(int(MyGlobals.cat.get_pet_happiness())),
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 *
+               MyGlobals.text_y_indent)
+    print_text(f"Happy: {int(MyGlobals.cat.get_pet_happiness())}",
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
-               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 * MyGlobals.text_y_indent,
-               font_color=MyGlobals.DARK_PURPLE)
-    print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
+               MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats_3 *
+               MyGlobals.text_y_indent, font_color=MyGlobals.DARK_PURPLE)
+    print_text(f"Health: {int(MyGlobals.cat.get_pet_health())}",
                MyGlobals.text_x_stats,
                MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats *
                MyGlobals.text_y_indent)
-    print_text("Health:" + str(int(MyGlobals.cat.get_pet_health())),
+    print_text(f"Health: {int(MyGlobals.cat.get_pet_health())}",
                MyGlobals.text_x_stats + MyGlobals.text_x_indent,
                MyGlobals.text_y_stats + MyGlobals.text_mult_y_died_stats *
                MyGlobals.text_y_indent,

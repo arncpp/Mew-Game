@@ -22,11 +22,11 @@ def show_menu():
         while show:
             event_in_menu()
             draw_bg_menu()
-            print_text(str(MyGlobals.input_text), MyGlobals.input_text_x,
+            print_text(f"{MyGlobals.input_text}", MyGlobals.input_text_x,
                        MyGlobals.input_text_y,
                        font_color=MyGlobals.input_text_bg,
                        font_size=MyGlobals.input_text_size)
-            print_text(str(MyGlobals.input_text),
+            print_text(f"{MyGlobals.input_text}",
                        MyGlobals.input_text_x + MyGlobals.input_text_indent_x,
                        MyGlobals.input_text_y,
                        font_color=MyGlobals.input_text_fd,

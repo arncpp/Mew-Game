@@ -63,6 +63,7 @@ class MyGlobals(object):
     btn_next_inscription = "Next"
     btn_prev_inscription = "Prev"
     btn_start_inscription = "Start"
+    mouse_get_pressed_state = 3
 
     # ----Загрузка спрайтов для анимации кота---
     cat_sit = [pygame.image.load("images/cat_sprites/sit_col/" + "sit_" +
@@ -79,10 +80,10 @@ class MyGlobals(object):
     # ----------Загрузка музыки и звуков----------
     bg_music = [os.path.join(d, f) for d, dirs, m_files in
                 os.walk("sounds/music") for f in m_files]
-    mew_1 = pygame.mixer.Sound("sounds/cat/mew_1.wav")
-    mew_2 = pygame.mixer.Sound("sounds/cat/mew_2.wav")
-    mrr = pygame.mixer.Sound("sounds/cat/mrr.wav")
-    eat = pygame.mixer.Sound("sounds/cat/eat.mp3")
+    mew_1 = "sounds/cat/mew_1.wav"
+    mew_2 = "sounds/cat/mew_2.wav"
+    mrr = "sounds/cat/mrr.wav"
+    eat = "sounds/cat/eat.mp3"
     menu_track = "sounds/Nuver Its getting late.mp3"
 
     # -----------Количество треков-----------------
@@ -94,8 +95,8 @@ class MyGlobals(object):
     PREV = pygame.USEREVENT - 1
 
     # ----------Звуковые каналы--------------------
-    channel1 = pygame.mixer.Channel(0)
-    channel2 = pygame.mixer.Channel(1)
+    channel1 = 0
+    channel2 = 1
     sounds_volume = 0.2
     music_volume = 0.5
 
