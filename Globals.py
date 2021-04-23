@@ -13,6 +13,7 @@ class MyGlobals(object):
     display_fps = 60
     font_type_text = "images/pixelsh.ttf"
     default_pos_pic = (0, 0)
+    fps = pygame.time.Clock()
     # ------------Иконка игры------------------
     icon = pygame.image.load("images/icon.png")
 
@@ -158,3 +159,5 @@ class MyGlobals(object):
     stat_health = "health"
     stat_happy = "happy"
     stat_name = "name"
+    need_input = False
+    input_text = ""

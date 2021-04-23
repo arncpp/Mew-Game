@@ -159,3 +159,11 @@ class ButtonFactory:
                       MyGlobals.but_in, MyGlobals.but_ac,
                       MyGlobals.but_cl,
                       prev_track, mrr)
+
+
+button_factory = ButtonFactory()
+button_food = button_factory.button_food()
+button_sleep = button_factory.button_sleep()
+button_health = button_factory.button_health()
+button_next = button_factory.button_next()
+button_prev = button_factory.button_prev()
