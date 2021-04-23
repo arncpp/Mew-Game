@@ -14,43 +14,44 @@ def stats_rec():
     игровое окно
     """
     n_time = time.time()
-    stats = {"time": "", "food": "", "sleep": "", "happy": "",
-             "health": "", "name": ""}
+    stats = {MyGlobals.stat_time: "", MyGlobals.stat_food: "",
+             MyGlobals.stat_sleep: "", MyGlobals.stat_happy: "",
+             MyGlobals.stat_health: "", MyGlobals.stat_name: ""}
     try:
-        with open("stats.txt", "r") as stats_file:
+        with open(MyGlobals.stats_file_name, "r") as stats_file:
             for i, line in enumerate(list(stats_file.readlines())):
                 stats[list(stats.keys())[i]] = line
     except Exception:
-        open("stats.txt", "w").close()
+        open(MyGlobals.stats_file_name, "w").close()
 
-    if stats["time"] == "":
+    if stats[MyGlobals.stat_time] == "":
         MyGlobals.isempty = True
-        stats["time"] = time.time()
-    if stats["food"] == "":
+        stats[MyGlobals.stat_time] = time.time()
+    if stats[MyGlobals.stat_food] == "":
         MyGlobals.isempty = True
-        stats["food"] = MyGlobals.cat_max_stats
-    if stats["sleep"] == "":
+        stats[MyGlobals.stat_food] = MyGlobals.cat_max_stats
+    if stats[MyGlobals.stat_sleep] == "":
         MyGlobals.isempty = True
-        stats["sleep"] = MyGlobals.cat_max_stats
-    if stats["happy"] == "":
+        stats[MyGlobals.stat_sleep] = MyGlobals.cat_max_stats
+    if stats[MyGlobals.stat_happy] == "":
         MyGlobals.isempty = True
-        stats["happy"] = MyGlobals.cat_max_stats
-    if stats["health"] == "":
+        stats[MyGlobals.stat_happy] = MyGlobals.cat_max_stats
+    if stats[MyGlobals.stat_health] == "":
         MyGlobals.isempty = True
-        stats["health"] = MyGlobals.cat_max_stats
-    if stats["name"] == "":
+        stats[MyGlobals.stat_health] = MyGlobals.cat_max_stats
+    if stats[MyGlobals.stat_name] == "":
         MyGlobals.isempty = True
-        stats["name"] = MyGlobals.default_cat_name
+        stats[MyGlobals.stat_name] = MyGlobals.default_cat_name
 
-    time_loss = n_time - float(stats["time"])
+    time_loss = n_time - float(stats[MyGlobals.stat_time])
     food_loss = time_loss // MyGlobals.stats_loss_divider
     sleep_loss = time_loss // MyGlobals.stats_loss_divider * \
                  MyGlobals.text_mult_y_died_stats
     health_loss = time_loss // MyGlobals.stats_loss_divider * 1.8
-    MyGlobals.cat.set_hunger(int(stats["food"]))
-    MyGlobals.cat.set_sleep(int(stats["sleep"]))
-    MyGlobals.cat.set_happiness(int(stats["happy"]))
-    MyGlobals.cat.set_health(int(stats["health"]))
+    MyGlobals.cat.set_hunger(int(stats[MyGlobals.stat_food]))
+    MyGlobals.cat.set_sleep(int(stats[MyGlobals.stat_sleep]))
+    MyGlobals.cat.set_happiness(int(stats[MyGlobals.stat_happy]))
+    MyGlobals.cat.set_health(int(stats[MyGlobals.stat_health]))
     MyGlobals.cat.set_hunger(
         max(MyGlobals.min_stats, MyGlobals.cat.get_pet_hunger() - food_loss))
     MyGlobals.cat.set_sleep(
@@ -60,4 +61,4 @@ def stats_rec():
             MyGlobals.cat.get_pet_happiness() - sleep_loss))
     MyGlobals.cat.set_health(
         max(MyGlobals.min_stats, MyGlobals.cat.get_pet_health() - health_loss))
-    MyGlobals.cat.set_name(stats["name"])
+    MyGlobals.cat.set_name(stats[MyGlobals.stat_name])

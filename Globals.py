@@ -12,7 +12,6 @@ class MyGlobals(object):
     display = pygame.display.set_mode((display_width, display_height))
     display_fps = 60
     font_type_text = "images/pixelsh.ttf"
-    stats_file_name = "stats.txt"
     default_pos_pic = (0, 0)
     # ------------Иконка игры------------------
     icon = pygame.image.load("images/icon.png")
@@ -148,10 +147,12 @@ class MyGlobals(object):
     cat_dead_indent_x = -5
     cat_dead_indent_y = 40
     gameover_pos = (80, 80)
-
-
-
-
-
-
-
+    
+    # -----------Файл со статами---------------------
+    stats_file_name = "stats.txt"
+    stat_time = "time"
+    stat_food = "food"
+    stat_sleep = "sleep"
+    stat_health = "health"
+    stat_happy = "happy"
+    stat_name = "name"
