@@ -161,3 +161,7 @@ class MyGlobals(object):
     stat_name = "name"
     need_input = False
     input_text = ""
+    stats = {stat_time: "", stat_food: "",
+             stat_sleep: "", stat_happy: "",
+             stat_health: "", stat_name: ""}
+    temp_stats_keys_list = list(stats.keys())

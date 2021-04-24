@@ -3,6 +3,7 @@ import pygame
 from Globals import MyGlobals
 
 pygame.mixer.init()
+
 # ------Счётчики спрайтов-------------
 bg_counter = 0
 img_counter = 0
